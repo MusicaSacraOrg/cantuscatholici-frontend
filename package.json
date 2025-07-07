@@ -8,8 +8,7 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-storybook": "storybook build"
   },
   "author": "Samuel Slávik",
   "license": "ISC",
