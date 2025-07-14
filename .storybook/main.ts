@@ -1,7 +1,10 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
-    stories: ['../src/**/__tests__/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+    stories: [
+        '../src/**/__tests__/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+        '../node_modules/@musica-sacra/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    ],
     addons: [
         '@storybook/addon-webpack5-compiler-swc',
         '@storybook/addon-essentials',

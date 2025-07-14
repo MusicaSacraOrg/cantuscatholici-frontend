@@ -1,6 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -45,6 +43,14 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader', // injects CSS into the DOM
+                    'css-loader', // interprets CSS imports
+                    'sass-loader', // compiles SCSS to CSS
+                ],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/,
