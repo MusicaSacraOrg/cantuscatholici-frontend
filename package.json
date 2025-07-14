@@ -6,6 +6,7 @@
     "generate-scss": "node scripts/generate-scss-imports.js",
     "prebuild": "npm run generate-scss",
     "predev": "npm run generate-scss",
+    "prestorybook": "npm run generate-scss",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.cjs",
     "dev": "webpack server --open --config webpack.config.cjs",
     "lint": "eslint",
@@ -17,7 +18,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@musica-sacra/dummy": "^0.0.2",
+    "@musica-sacra/dummy": "^0.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.5.0"
