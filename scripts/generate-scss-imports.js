@@ -6,4 +6,4 @@ const imports = scssFiles
     .map((file) => `@use "${file.replace('node_modules/', '')}" as *;`)
     .join('\n');
 
-fs.writeFileSync('src/styles/generated/generated-imports.scss', imports);
+fs.writeFileSync('src/styles/generated-imports.scss', imports);
