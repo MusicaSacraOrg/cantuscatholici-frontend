@@ -140,4 +140,4 @@ vite.config.ts.timestamp-*
 
 .idea
 
-src/styles/generated/
+src/styles/generated-imports.scss
