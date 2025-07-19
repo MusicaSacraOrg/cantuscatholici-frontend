@@ -1,3 +1,11 @@
 @use "styles/generated-imports";
 
-@use "styles/app";
+@use 'styles/reset';
+@use "styles/main";
+
+// VIEWS
+
+// COMPONENTS
+@use 'components/exampleComponent/exampleComponent';
+
+// PLUGINS

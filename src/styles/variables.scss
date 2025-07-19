@@ -1,0 +1,61 @@
+// COLOR VALUES
+$white: rgba(255, 255, 255, 1);
+$white-soft: rgba(249, 249, 249, 1);
+$white-mute: rgba(246, 246, 247, 1);
+
+$black: rgba(26, 26, 26, 1);
+
+$grey-dark: rgba(60, 60, 67, 1);
+$grey-light: rgba(142, 142, 147, 1);
+
+$indigo: rgba(57, 81, 106, 1);
+
+$blue: rgba(8, 130, 170, 1);
+
+// Informative colors will be defined later
+//$red;
+//
+//$green;
+//
+//$yellow;
+
+// transparent colors
+$grey-dark-120: rgba(60, 60, 67, 0.12);
+$blue-500: rgba(97, 218, 251, 0.5);
+
+
+// COLORS
+$accent: $blue;
+$accent-transparent: $blue-500;
+
+$primary: $indigo;
+$secondary: $grey-dark;
+$tertiary: $grey-light;
+
+$background-primary: $white;
+$background-secondary: $white-mute;
+
+$disabled: $white-soft;
+
+
+// FONTS
+$font-base: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+
+
+// BORDERS
+$border-radius: 12px;
+$border-radius-small: 4px;
+
+$border: 1px solid $grey-dark-120;
+$border-light: 1px solid $grey-dark-120;
+$border-dark: 1px solid $grey-light;
+$border-accent: 1px solid $accent;
+
+// SHADOWS
+$box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 32px 0px, rgba(0, 0, 0, 0.08) 0px 2px 6px 0px;
+
+
+// BREAKPOINTS - use with max-width condition
+$break-point-small-desktop: 1279px;
+$break-point-tablet: 768px;
+$break-point-mobile: 479px;
