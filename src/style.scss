@@ -1,3 +1,15 @@
 @use "styles/generated-imports";
 
-@use "styles/app";
+@use 'styles/reset';
+@use "styles/main";
+
+// ADMIN
+@use 'admin/dashboard/dashboard';
+
+// VIEWS
+@use 'views/homepageView/homepageView';
+
+// COMPONENTS
+@use 'components/exampleComponent/exampleComponent';
+
+// PLUGINS
