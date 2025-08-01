@@ -1,9 +1,12 @@
 import { ExampleComponent } from './components/exampleComponent/ExampleComponent';
+import { NotificationsContextProvider } from '@musica-sacra/notifications';
 
 export function App() {
     return (
         <div className="App">
-            <ExampleComponent title={'Cantus Catholici'} />
+            <NotificationsContextProvider>
+                <ExampleComponent title={'Cantus Catholici'} />
+            </NotificationsContextProvider>
         </div>
     );
 }
