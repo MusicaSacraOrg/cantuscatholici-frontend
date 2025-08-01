@@ -18,6 +18,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@musica-sacra/hooks": "^1.2.0",
+    "@musica-sacra/loader": "^1.0.3",
+    "@musica-sacra/notifications": "^1.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.5.0"
