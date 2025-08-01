@@ -2,7 +2,7 @@ import { ExampleComponent } from '../ExampleComponent';
 import { StoryObj } from '@storybook/react';
 
 const meta = {
-    title: 'CantusCatholici/ExampleComponent',
+    title: 'CantusCatholici/components/ExampleComponent',
     component: ExampleComponent,
     args: {
         title: 'Test Cantus Catholici',
