@@ -1,23 +1,15 @@
-import { useState } from 'react';
 import './hamburger.scss';
 
-interface HamburgerProps {
-    onToggle?: (isOpen: boolean) => void;
-}
+type HamburgerProps = {
+    onToggle?: () => void;
+    isToggled?: boolean;
+};
 
-export function Hamburger({ onToggle }: HamburgerProps) {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleClick = () => {
-        const newState = !isOpen;
-        setIsOpen(newState);
-        onToggle?.(newState);
-    };
-
+export function Hamburger({ onToggle, isToggled }: HamburgerProps) {
     return (
         <button
-            className={`hamburger ${isOpen ? 'hamburger--open' : ''}`}
-            onClick={handleClick}
+            className={`hamburger ${isToggled ? 'hamburger--open' : ''}`}
+            onClick={onToggle}
             aria-label="Toggle menu"
         >
             <span className="hamburger__line"></span>
