@@ -1,9 +1,8 @@
-import { ExampleComponent } from './components/exampleComponent/ExampleComponent';
-
+import { Navbar } from './components/navbar/Navbar';
 export function App() {
     return (
         <div className="App">
-            <ExampleComponent title={'Cantus Catholici'} />
+            <Navbar />
         </div>
     );
 }
