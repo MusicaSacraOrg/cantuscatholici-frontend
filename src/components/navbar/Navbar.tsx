@@ -6,8 +6,8 @@ import { Hamburger } from './Hamburger';
 export function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const handleMenuToggle = (isOpen: boolean) => {
-        setIsMobileMenuOpen(isOpen);
+    const handleMenuToggle = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
     const closeMobileMenu = () => {
@@ -19,9 +19,6 @@ export function Navbar() {
             <div className="nav__desktop">
                 <div className="logo">
                     <span>Cantus Catholici</span>
-                </div>
-                <div className="search-bar">
-                    <span>Search bar</span>
                 </div>
                 <div className="nav-links">
                     <Link to="/">Piesne</Link>
@@ -43,7 +40,10 @@ export function Navbar() {
                     </Link>
                 </div>
                 <div className="hamburger-container">
-                    <Hamburger onToggle={handleMenuToggle} />
+                    <Hamburger
+                        isToggled={isMobileMenuOpen}
+                        onToggle={handleMenuToggle}
+                    />
                 </div>
             </div>
 
