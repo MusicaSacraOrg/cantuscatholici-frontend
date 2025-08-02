@@ -2,8 +2,9 @@ import { Navbar } from '../Navbar';
 import { StoryObj } from '@storybook/react';
 
 const meta = {
-    title: 'CantusCatholici/Navbar',
+    title: 'CantusCatholici/components/Navbar',
     component: Navbar,
+    args: {},
 };
 
 export default meta;

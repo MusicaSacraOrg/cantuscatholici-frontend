@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import { MemoryRouter } from 'react-router';
 
 declare const require: {
     context: (
@@ -29,6 +30,13 @@ const preview: Preview = {
             },
         },
     },
+    decorators: [
+        (Story) => (
+            <MemoryRouter>
+                <Story />
+            </MemoryRouter>
+        ),
+    ],
 };
 
 export default preview;
