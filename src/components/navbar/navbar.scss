@@ -27,6 +27,10 @@ nav {
         border: $border-light;
         border-radius: $border-radius;
         padding: 8px;
+
+        @media (max-width: $break-point-small-desktop) {
+            display: none;
+        } 
     }
 
     .nav-links {
@@ -37,11 +41,19 @@ nav {
         justify-content: flex-end;
         align-items: center;
         margin-right: 1rem;
+
+        @media (max-width: $break-point-small-desktop) {
+            display: none;
+        } 
     }
 
     .hamburger-container {
         display: none;
         margin-right: 1rem;
+
+        @media (max-width: $break-point-small-desktop) {
+            display: flex;
+        } 
     }
 
     .nav__mobile {
@@ -98,23 +110,6 @@ nav {
         svg {
             transition: all 0.3s ease;
             fill: $secondary;
-        }
-    }
-}
-
-
-@media (max-width: $break-point-small-desktop) {
-    nav {
-        .nav-links {
-            display: none;
-        }
-
-        .search-bar {
-            display: none;
-        }
-
-        .hamburger-container {
-            display: flex;
         }
     }
 }
