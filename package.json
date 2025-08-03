@@ -2,8 +2,9 @@
   "name": "cantus-catholici-frontend",
   "version": "0.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "generate-scss": "node scripts/generate-scss-imports.js",
+    "generate-scss": "node scripts/generate-scss-imports.cjs",
     "prebuild": "npm run generate-scss",
     "predev": "npm run generate-scss",
     "prestorybook": "npm run generate-scss",
