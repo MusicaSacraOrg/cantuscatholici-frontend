@@ -1,0 +1,18 @@
+@use '../../../src/styles/variables' as *;
+
+.footer {
+
+  border-top: $border;
+
+  padding: 1rem;
+
+  width: 100%;
+
+  &__ {
+    &content {
+      margin: 0 auto;
+      max-width: $content-width;
+      text-align: center;
+    }
+  }
+}
