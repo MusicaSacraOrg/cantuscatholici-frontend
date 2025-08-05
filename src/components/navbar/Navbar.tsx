@@ -4,7 +4,7 @@ import './navbar.scss';
 import { Hamburger } from './Hamburger';
 import { useBem } from '@musica-sacra/hooks';
 export function Navbar() {
-    const { bem } = useBem('navbar');
+    const { bem, base } = useBem('navbar');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const handleMenuToggle = () => {
@@ -16,9 +16,7 @@ export function Navbar() {
     };
 
     return (
-        <nav
-            className={`navbar ${isMobileMenuOpen ? 'navbar--mobile-open' : ''}`}
-        >
+        <nav className={bem(base, { 'navbar--mobile-open': isMobileMenuOpen })}>
             <div className={bem('desktop')}>
                 <div className={bem('logo')}>
                     <span>Cantus Catholici</span>
@@ -51,7 +49,10 @@ export function Navbar() {
             </div>
 
             <div
-                className={`navbar__mobile ${isMobileMenuOpen ? 'navbar__mobile--open' : ''}`}
+                className={bem({
+                    mobile: true,
+                    'mobile--open': isMobileMenuOpen,
+                })}
             >
                 <Link to="/" onClick={closeMobileMenu}>
                     Piesne

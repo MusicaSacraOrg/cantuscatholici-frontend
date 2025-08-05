@@ -7,11 +7,13 @@ type HamburgerProps = {
 };
 
 export function Hamburger({ onToggle, isToggled }: HamburgerProps) {
-    const { bem } = useBem('hamburger');
+    const { bem, base } = useBem('hamburger');
 
     return (
         <button
-            className={`hamburger ${isToggled ? 'hamburger--open' : ''}`}
+            className={bem(base, {
+                'hamburger--open': !!isToggled,
+            })}
             onClick={onToggle}
             aria-label="Toggle menu"
         >
