@@ -1,8 +1,8 @@
 import { Link } from 'react-router';
 import { useState } from 'react';
-import './navbar.scss';
 import { Hamburger } from './Hamburger';
 import { useBem } from '@musica-sacra/hooks';
+
 export function Navbar() {
     const { bem, base } = useBem('navbar');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,10 +19,10 @@ export function Navbar() {
         <nav className={bem(base, { 'navbar--mobile-open': isMobileMenuOpen })}>
             <div className={bem('desktop')}>
                 <div className={bem('logo')}>
-                    <span>Cantus Catholici</span>
+                    <Link to="/">CantusCatholici</Link>
                 </div>
                 <div className={bem('links')}>
-                    <Link to="/">Piesne</Link>
+                    <Link to="/piesne">Piesne</Link>
                     <Link to="/">About</Link>
                     <Link to="/">Domov</Link>
                     <Link to="/">
@@ -54,7 +54,7 @@ export function Navbar() {
                     'mobile--open': isMobileMenuOpen,
                 })}
             >
-                <Link to="/" onClick={closeMobileMenu}>
+                <Link to="/piesne" onClick={closeMobileMenu}>
                     Piesne
                 </Link>
                 <Link to="/" onClick={closeMobileMenu}>

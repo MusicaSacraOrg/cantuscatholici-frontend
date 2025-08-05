@@ -6,13 +6,15 @@
     align-items: stretch;
     border: $border;
     position: relative;
-
     
     &__{
         &logo {
             flex: 2;
-            color: $accent;
             margin-left: 1rem;
+
+            a {
+                color: $accent;
+            }
         }
 
         &desktop {
@@ -47,6 +49,27 @@
             @media (max-width: $break-point-small-desktop) {
                 display: none;
             }
+
+            a {
+                color: $secondary;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    color: $accent;
+
+                    svg {
+                        fill: $accent;
+                        transform: scale(1.1);
+                    }
+                }
+
+                svg {
+                    fill: $secondary;
+                }
+            }
         }
 
         &hamburger-container {
@@ -71,7 +94,6 @@
             padding: 1rem;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
             box-shadow: $box-shadow;
             z-index: 1000;
 
@@ -85,36 +107,19 @@
             a {
                 padding: 12px 16px;
                 margin: 4px 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
                 border-radius: $border-radius-small;
-                transition: background-color 0.3s ease;
+
+                color: $secondary;
 
                 &:hover {
                     background-color: $background-primary;
                 }
             }
-        }
-    }
-
-    a {
-        color: $secondary;
-        transition: color 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-
-        &:hover {
-            color: $accent;
-
-            svg {
-                fill: $accent;
-                transform: scale(1.1);
-            }
-        }
-
-        svg {
-            transition: all 0.3s ease;
-            fill: $secondary;
         }
     }
 }

@@ -1,4 +1,3 @@
-import './hamburger.scss';
 import { useBem } from '@musica-sacra/hooks';
 
 type HamburgerProps = {
