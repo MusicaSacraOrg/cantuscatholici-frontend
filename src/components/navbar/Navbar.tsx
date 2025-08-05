@@ -2,8 +2,9 @@ import { Link } from 'react-router';
 import { useState } from 'react';
 import './navbar.scss';
 import { Hamburger } from './Hamburger';
-
+import { useBem } from '@musica-sacra/hooks';
 export function Navbar() {
+    const { bem } = useBem('navbar');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const handleMenuToggle = () => {
@@ -15,12 +16,14 @@ export function Navbar() {
     };
 
     return (
-        <nav className={isMobileMenuOpen ? 'nav--mobile-open' : ''}>
-            <div className="nav__desktop">
-                <div className="logo">
+        <nav
+            className={`navbar ${isMobileMenuOpen ? 'navbar--mobile-open' : ''}`}
+        >
+            <div className={bem('desktop')}>
+                <div className={bem('logo')}>
                     <span>Cantus Catholici</span>
                 </div>
-                <div className="nav-links">
+                <div className={bem('links')}>
                     <Link to="/">Piesne</Link>
                     <Link to="/">About</Link>
                     <Link to="/">Domov</Link>
@@ -39,7 +42,7 @@ export function Navbar() {
                         </svg>
                     </Link>
                 </div>
-                <div className="hamburger-container">
+                <div className={bem('hamburger-container')}>
                     <Hamburger
                         isToggled={isMobileMenuOpen}
                         onToggle={handleMenuToggle}
@@ -48,7 +51,7 @@ export function Navbar() {
             </div>
 
             <div
-                className={`nav__mobile ${isMobileMenuOpen ? 'nav__mobile--open' : ''}`}
+                className={`navbar__mobile ${isMobileMenuOpen ? 'navbar__mobile--open' : ''}`}
             >
                 <Link to="/" onClick={closeMobileMenu}>
                     Piesne

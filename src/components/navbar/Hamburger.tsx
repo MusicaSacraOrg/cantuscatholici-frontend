@@ -1,4 +1,5 @@
 import './hamburger.scss';
+import { useBem } from '@musica-sacra/hooks';
 
 type HamburgerProps = {
     onToggle?: () => void;
@@ -6,15 +7,17 @@ type HamburgerProps = {
 };
 
 export function Hamburger({ onToggle, isToggled }: HamburgerProps) {
+    const { bem } = useBem('hamburger');
+
     return (
         <button
             className={`hamburger ${isToggled ? 'hamburger--open' : ''}`}
             onClick={onToggle}
             aria-label="Toggle menu"
         >
-            <span className="hamburger__line"></span>
-            <span className="hamburger__line"></span>
-            <span className="hamburger__line"></span>
+            <span className={bem('line')}></span>
+            <span className={bem('line')}></span>
+            <span className={bem('line')}></span>
         </button>
     );
 }
