@@ -14,7 +14,7 @@ export function Hamburger({ onToggle, isToggled }: HamburgerProps) {
                 'hamburger--open': !!isToggled,
             })}
             onClick={onToggle}
-            aria-label="Toggle menu"
+            aria-label="Menu"
         >
             <span className={bem('line')}></span>
             <span className={bem('line')}></span>
