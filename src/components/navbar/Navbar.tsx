@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 import { useState } from 'react';
 import { Hamburger } from './Hamburger';
 import { useBem } from '@musica-sacra/hooks';
@@ -19,13 +19,13 @@ export function Navbar() {
         <nav className={bem(base, { 'navbar--mobile-open': isMobileMenuOpen })}>
             <div className={bem('desktop')}>
                 <div className={bem('logo')}>
-                    <Link to="/">CantusCatholici</Link>
+                    <NavLink to="/">CantusCatholici</NavLink>
                 </div>
                 <div className={bem('links')}>
-                    <Link to="/piesne">Piesne</Link>
-                    <Link to="/">About</Link>
-                    <Link to="/">Domov</Link>
-                    <Link to="/">
+                    <NavLink to="/piesne">Piesne</NavLink>
+                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/">Domov</NavLink>
+                    <NavLink to="/profil">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             height="30px"
@@ -38,7 +38,7 @@ export function Navbar() {
                8 4v2H4v-2c0-2.66 5.33-4 8-4z"
                             />
                         </svg>
-                    </Link>
+                    </NavLink>
                 </div>
                 <div className={bem('hamburger-container')}>
                     <Hamburger
@@ -54,18 +54,18 @@ export function Navbar() {
                     'mobile--open': isMobileMenuOpen,
                 })}
             >
-                <Link to="/piesne" onClick={closeMobileMenu}>
+                <NavLink to="/piesne" onClick={closeMobileMenu}>
                     Piesne
-                </Link>
-                <Link to="/" onClick={closeMobileMenu}>
+                </NavLink>
+                <NavLink to="/about" onClick={closeMobileMenu}>
                     About
-                </Link>
-                <Link to="/" onClick={closeMobileMenu}>
+                </NavLink>
+                <NavLink to="/" onClick={closeMobileMenu}>
                     Domov
-                </Link>
-                <Link to="/" onClick={closeMobileMenu}>
+                </NavLink>
+                <NavLink to="/profil" onClick={closeMobileMenu}>
                     Profil
-                </Link>
+                </NavLink>
             </div>
         </nav>
     );
