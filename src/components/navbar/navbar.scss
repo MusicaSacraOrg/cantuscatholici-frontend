@@ -66,8 +66,16 @@
                     }
                 }
 
+                &.active {
+                    color: $accent;
+                }
+
                 svg {
                     fill: $secondary;
+                }
+
+                &.active svg {
+                    fill: $accent;
                 }
             }
         }
@@ -118,6 +126,10 @@
 
                 &:hover {
                     background-color: $background-primary;
+                }
+
+                &.active {
+                    color: $accent;
                 }
             }
         }
