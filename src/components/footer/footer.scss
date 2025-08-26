@@ -4,15 +4,52 @@
 
   border-top: $border;
 
-  padding: 1rem;
+  padding: 1rem 1rem 4rem 1rem;
 
   width: 100%;
 
   &__ {
     &content {
       margin: 0 auto;
+
+      width: 100%;
       max-width: $content-width;
+    }
+
+    &content-top {
+      display: flex;
+      justify-content: space-between;
+
+    }
+
+    &content-column {
+      width: 30%;
+
+      h3 {
+        margin-bottom: 1rem;
+      }
+    }
+
+    &logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    &links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    &copyrights {
+      width: 100%;
+      max-width: $content-width;
+
+      margin: 0 auto;
+
       text-align: center;
+
+      color: $tertiary
     }
   }
 }
