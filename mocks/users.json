@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "email": "admin@musicasacra.com",
+      "mobile": "+421918958527",
+      "registeredAt": "timestamp",
+      "role": "admin",
+      "name": "Admin",
+      "surname": "AdminSurname",
+      "descriptions": "Some description provided here",
+      "avatar": "some url"
+    },
+    {
+      "id": 1,
+      "email": "redactor@musicasacra.com",
+      "mobile": "+421918958527",
+      "registeredAt": "timestamp",
+      "role": "redactor",
+      "name": "Redactor",
+      "surname": "RedactorSurname",
+      "descriptions": "Some description provided here",
+      "avatar": "some url"
+    },
+    {
+      "id": 2,
+      "email": "user1@musicasacra.com",
+      "mobile": "+421918958527",
+      "registeredAt": "timestamp",
+      "role": "user",
+      "name": "User1",
+      "surname": "User1",
+      "descriptions": "Some description provided here that is extra long lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis eros quis nisl tincidunt tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;",
+      "avatar": "some url"
+    },
+    {
+      "id": 3,
+      "email": "user2@musicasacra.com",
+      "mobile": "+421918958527",
+      "registeredAt": "timestamp",
+      "role": "user",
+      "name": "User2",
+      "surname": "User2",
+      "descriptions": "Some description provided here",
+      "avatar": "some url"
+    }
+  ]
+}

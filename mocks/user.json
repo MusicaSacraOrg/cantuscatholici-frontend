@@ -1,0 +1,13 @@
+{
+  "user": {
+    "id": 0,
+    "email": "admin@musicasacra.com",
+    "mobile": "+421918958527",
+    "registeredAt": "timestamp",
+    "role": "admin",
+    "name": "Admin",
+    "surname": "AdminSurname",
+    "descriptions": "Some description provided here",
+    "avatar": "some url"
+  }
+}
