@@ -11,14 +11,26 @@ import {
 import { Link } from 'react-router';
 import { Paths } from '../../router/paths';
 
-export function LoginView() {
-    const { bem } = useBem('view-login');
+export function RegisterView() {
+    const { bem } = useBem('view-register');
 
     return (
         <LayoutBasic isPageLayout={true} classname={bem()}>
-            <h2>Prihlásenie</h2>
+            <h2>Registrácia</h2>
             <form>
                 <FormContent>
+                    <FormRow>
+                        <FormGroup>
+                            <Label>Mano</Label>
+                            <Input placeholder={'Meno'} type={'text'} />
+                        </FormGroup>
+                    </FormRow>
+                    <FormRow>
+                        <FormGroup>
+                            <Label>Priezvisko</Label>
+                            <Input placeholder={'Priezvisko'} type={'text'} />
+                        </FormGroup>
+                    </FormRow>
                     <FormRow>
                         <FormGroup>
                             <Label>Email</Label>
@@ -31,14 +43,22 @@ export function LoginView() {
                             <Input placeholder={'Heslo'} type={'password'} />
                         </FormGroup>
                     </FormRow>
+                    <FormRow>
+                        <FormGroup>
+                            <Label>Potvrdiť heslo</Label>
+                            <Input
+                                placeholder={'Potvrdiť heslo'}
+                                type={'password'}
+                            />
+                        </FormGroup>
+                    </FormRow>
                     <Button type={'submit'} rounded>
-                        Prihlásiť sa
+                        Registrovať sa
                     </Button>
                 </FormContent>
             </form>
             <p>
-                Ešte nemáte účet?{' '}
-                <Link to={Paths.REGISTER}>Registrovať sa.</Link>
+                Máte účet? <Link to={Paths.LOGIN}>Prihlásiť sa.</Link>
             </p>
         </LayoutBasic>
     );

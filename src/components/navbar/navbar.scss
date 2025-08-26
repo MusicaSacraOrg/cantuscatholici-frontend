@@ -11,6 +11,7 @@
         &logo {
             flex: 2;
             margin-left: 1rem;
+            font-weight: bold;
 
             a {
                 color: $accent;
@@ -51,18 +52,20 @@
             }
 
             a {
-                color: $secondary;
+                color: $primary;
 
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                font-weight: bold;
 
                 &:hover {
                     color: $accent;
 
                     svg {
                         fill: $accent;
-                        transform: scale(1.1);
+                        // transform: scale(1.1);
                     }
                 }
 

@@ -1,9 +1,8 @@
-const baseUrl = '';
+const baseUrl = '...';
 
 export const Endpoints = Object.freeze({
-    LOGIN: `${baseUrl}/api/login`,
-});
+    USER_LOGIN: `${baseUrl}/api/user/login`,
+    USER_REGISTER: `${baseUrl}/api/user/register`,
 
-// export class Endpoints {
-//     // #base_url = '';
-// }
+    USER: `${baseUrl}/api/user/`,
+});
