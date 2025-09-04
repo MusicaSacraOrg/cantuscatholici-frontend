@@ -10,9 +10,12 @@ import {
 } from '@musica-sacra/forms';
 import { Link } from 'react-router';
 import { Paths } from '../../router/paths';
+import { useState } from 'react';
 
 export function LoginView() {
     const { bem } = useBem('view-login');
+
+    const [email, setEmail] = useState('');
 
     return (
         <LayoutBasic isPageLayout={true} classname={bem()}>
@@ -22,7 +25,12 @@ export function LoginView() {
                     <FormRow>
                         <FormGroup>
                             <Label>Email</Label>
-                            <Input placeholder={'Email'} type={'email'} />
+                            <Input
+                                value={email}
+                                placeholder={'Email'}
+                                type={'email'}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
                         </FormGroup>
                     </FormRow>
                     <FormRow>

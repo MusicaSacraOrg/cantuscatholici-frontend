@@ -2,7 +2,7 @@ import { NavLink } from 'react-router';
 import { useState } from 'react';
 import { Hamburger } from './Hamburger';
 import { useBem } from '@musica-sacra/hooks';
-import {Paths} from "../../router/paths";
+import { Paths } from '../../router/paths';
 
 export function Navbar() {
     const { bem, base } = useBem('navbar');
