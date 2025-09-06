@@ -7,41 +7,57 @@ export function Footer() {
 
     return (
         <div className={bem()}>
-            <div className={bem('content')}>
-                <div className={bem('content-top')}>
-                    <div className={bem('content-column')}>
+            <div className={bem('content-wrapper')}>
+                <div className={bem('content')}>
+                    <div className={bem('column')}>
                         <a
                             className={bem('logo')}
-                            href={'musicasacraorg.sk'}
+                            href={'https://musicasacraorg.sk'}
                             target={'_blank'}
                             rel="noreferrer"
                         >
                             MusicaSacraOrg
                         </a>
-                    </div>
-                    <div className={bem('content-column')}>
-                        <h3>Kontakt</h3>
+                        <p>Lorem ipsum lorem ipsum, lorem ipsum, lorem ipsum</p>
                         <ul>
                             <li>info@musicasacra.sk</li>
                             <li>+421 918 958 527</li>
                         </ul>
                     </div>
-                    <div className={bem('content-column')}>
+                    <div className={bem('column')}>
                         <h3>Zdroje</h3>
                         <ul>
-                            <li>info@musicasacra.sk</li>
-                            <li>+421 918 958 527</li>
+                            <li>Dokumentácia</li>
+                            <li>O Projekte</li>
                         </ul>
                     </div>
-                </div>
-                <Hr />
-                <div className={bem('links')}>
-                    <Link to={''}>Piesne</Link>
-                    <Link to={''}>Liturgický kalendár</Link>
+                    <div className={bem('column')}>
+                        <h3>Obsah</h3>
+                        <ul>
+                            <li>
+                                <Link to={''}>Piesne</Link>
+                            </li>
+                            <li>
+                                <Link to={''}>Liturgický kalendár</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <Hr />
                 <div className={bem('copyrights')}>
-                    Všetky práva vyhradené © MusicaSacraOrg
+                    <div>
+                        <p>Všetky práva vyhradené © MusicaSacraOrg</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <Link to={''}>Ochrana osobných údajov</Link>
+                            </li>
+                            <li>
+                                <Link to={''}>Cookies</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
