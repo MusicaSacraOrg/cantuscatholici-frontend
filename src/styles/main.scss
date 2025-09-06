@@ -36,3 +36,9 @@ a {
     text-decoration: none;
     color: $primary;
 }
+
+ul, ol {
+  li:not(:last-child) {
+    margin-bottom: 0.7rem;
+  }
+}
