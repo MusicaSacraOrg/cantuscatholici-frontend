@@ -2,7 +2,13 @@ export const Paths = Object.freeze({
     HOMEPAGE: `/`,
 
     LOGIN: `/login`,
-    SIGNUP: `/signup`,
+    REGISTER: `/register`,
 
     ADMIN_HOME: '/dashboard/:userId',
+
+    SONGS: '/songs',
+
+    CALENDAR: '/calendar',
+
+    ABOUT: '/about-the-project',
 });

@@ -2,6 +2,7 @@ import { NavLink } from 'react-router';
 import { useState } from 'react';
 import { Hamburger } from './Hamburger';
 import { useBem } from '@musica-sacra/hooks';
+import { Paths } from '../../router/paths';
 
 export function Navbar() {
     const { bem, base } = useBem('navbar');
@@ -22,10 +23,10 @@ export function Navbar() {
                     <NavLink to="/">CantusCatholici</NavLink>
                 </div>
                 <div className={bem('links')}>
-                    <NavLink to="/piesne">Piesne</NavLink>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="/">Domov</NavLink>
-                    <NavLink to="/profil">
+                    <NavLink to={Paths.SONGS}>Piesne</NavLink>
+                    <NavLink to={Paths.CALENDAR}>Liturgický Kalendár</NavLink>
+                    <NavLink to={Paths.ABOUT}>O Projekte</NavLink>
+                    <NavLink to="/login">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             height="30px"

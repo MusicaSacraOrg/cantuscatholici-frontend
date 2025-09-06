@@ -19,10 +19,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@musica-sacra/forms": "^1.0.4",
     "@musica-sacra/hooks": "^1.2.1",
-    "@musica-sacra/layout": "^1.0.0",
+    "@musica-sacra/layout": "^1.0.1",
     "@musica-sacra/loader": "^1.0.3",
     "@musica-sacra/notifications": "^1.0.1",
+    "axios": "^1.11.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.5.0"

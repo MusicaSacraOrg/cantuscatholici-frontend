@@ -1,0 +1,15 @@
+@use '../../../src/styles/variables' as *;
+
+.view-register {
+    h2 {
+        margin-bottom: 3rem;
+    }
+
+    p {
+        color: $tertiary;
+    }
+
+    .ms-container {
+        max-width: 600px;
+    }
+}
