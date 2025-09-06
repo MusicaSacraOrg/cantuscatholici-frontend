@@ -1,18 +1,81 @@
 @use '../../../src/styles/variables' as *;
 
 .footer {
+    border-top: $border;
 
-  border-top: $border;
+    padding: 3rem 1rem 4rem 1rem;
 
-  padding: 1rem;
+    width: 100%;
 
-  width: 100%;
+    color: $tertiary;
 
-  &__ {
-    &content {
-      margin: 0 auto;
-      max-width: $content-width;
-      text-align: center;
+    &__ {
+        &content-wrapper {
+            margin: 0 auto;
+
+            width: 100%;
+            max-width: $content-width;
+        }
+
+        &content {
+            display: flex;
+            justify-content: space-between;
+            gap: 4rem;
+
+            @media (max-width: $break-point-small-desktop) {
+                flex-direction: column;
+            }
+        }
+
+        &column {
+            flex: 1;
+
+            &:first-child {
+                flex: 3;
+
+                p {
+                    margin-bottom: 2rem;
+                }
+            }
+
+            h3 {
+                margin-bottom: 2rem;
+                color: $primary;
+            }
+        }
+
+    &logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+        margin-bottom: 3rem;
+        display: block;
+        width: fit-content;
     }
-  }
+
+    &links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+        &copyrights {
+            width: 100%;
+            max-width: $content-width;
+
+            margin: 0 auto;
+
+            display: flex;
+            justify-content: space-between;
+
+            @media (max-width: $break-point-small-desktop) {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            ul {
+                display: flex;
+                gap: 3rem;
+            }
+        }
+    }
 }
