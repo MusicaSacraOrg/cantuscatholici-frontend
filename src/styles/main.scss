@@ -15,7 +15,7 @@ html {
 body {
   font-family: $font-base;
   font-size: 16px;
-  color: $primary;
+  color: $secondary;
 
   min-height: 100vh;
 
@@ -24,4 +24,21 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h2 {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: $primary;
+}
+
+ul, ol {
+  li:not(:last-child) {
+    margin-bottom: 0.7rem;
+  }
 }
