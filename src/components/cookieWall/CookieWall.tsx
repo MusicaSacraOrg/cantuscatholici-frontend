@@ -15,7 +15,7 @@ export function CookieWall() {
                         ratione assumenda blanditiis similique autem dolores ut
                         earum at eveniet nemo laudantium, nihil sint a.
                     </span>
-                    <ul className={bem('list')}>
+                    <ul>
                         <li>Deliver and maintain Google services</li>
                         <li>
                             Track outages and protect against spam, fraud, and
