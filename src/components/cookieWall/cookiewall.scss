@@ -13,10 +13,11 @@
     &container {
       max-width: $content-width;
       margin: 0 auto;
-      padding: 20px;
+      padding: 20px 0px;
 
-      @media (max-width: $break-point-tablet) {
+      @media (max-width: $break-point-small-desktop) {
         text-align: left;
+        padding: 20px;
       }
     }
 
