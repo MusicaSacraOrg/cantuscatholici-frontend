@@ -15,7 +15,7 @@ export function RegisterView() {
     const { bem } = useBem('view-register');
 
     return (
-        <LayoutBasic isPageLayout={true} classname={bem()}>
+        <LayoutBasic isPageLayout={true} className={bem()}>
             <h2>Registrácia</h2>
             <form>
                 <FormContent>

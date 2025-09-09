@@ -18,7 +18,7 @@ export function LoginView() {
     const [email, setEmail] = useState('');
 
     return (
-        <LayoutBasic isPageLayout={true} classname={bem()}>
+        <LayoutBasic isPageLayout={true} className={bem()}>
             <h2>Prihlásenie</h2>
             <form>
                 <FormContent>
