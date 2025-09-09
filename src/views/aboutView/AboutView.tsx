@@ -5,7 +5,7 @@ export function AboutView() {
     const { bem } = useBem('view-about');
 
     return (
-        <LayoutBasic isPageLayout={true} classname={bem()}>
+        <LayoutBasic isPageLayout={true} className={bem()}>
             Tu pojde daco o projekte
         </LayoutBasic>
     );
