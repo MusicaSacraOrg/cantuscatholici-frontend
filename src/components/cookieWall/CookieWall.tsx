@@ -1,7 +1,6 @@
 import { Button } from '@musica-sacra/forms';
 import '@musica-sacra/forms/dist/components/button/button.scss';
 import { useBem } from '@musica-sacra/hooks';
-import './cookiewall.scss';
 import { useCookiesConsent } from './useCookieConsent';
 
 type CookieWallProps = {
@@ -9,13 +8,16 @@ type CookieWallProps = {
 };
 
 export function CookieWall({ className = '' }: CookieWallProps) {
-    const { choice, accept, reject } = useCookiesConsent();
+    const { acceptCookiesConsent, rejectCookiesConsent, isAccepted ,isRejected} = useCookiesConsent();
 
-    if (!choice) {
-        return null;
-    }
+  if (isAccepted() || isRejected()) {
+    return null;
+  }
 
     const { bem, base } = useBem('ms-cookie-wall');
+
+    
+
 
     return (
         <div className={bem(base, className)}>
@@ -43,10 +45,10 @@ export function CookieWall({ className = '' }: CookieWallProps) {
                         </ul>
                     </div>
                     <div className={bem('buttons')}>
-                        <Button rounded onClick={reject}>
+                        <Button rounded onClick={rejectCookiesConsent}>
                             Reject
                         </Button>
-                        <Button rounded accent onClick={accept}>
+                        <Button rounded accent onClick={acceptCookiesConsent}>
                             Accept
                         </Button>
                     </div>
