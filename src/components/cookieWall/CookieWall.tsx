@@ -8,16 +8,13 @@ type CookieWallProps = {
 };
 
 export function CookieWall({ className = '' }: CookieWallProps) {
-    const { acceptCookiesConsent, rejectCookiesConsent, isAccepted ,isRejected} = useCookiesConsent();
+    const { acceptCookiesConsent, rejectCookiesConsent, isCookiesConsentSet} = useCookiesConsent();
 
-  if (isAccepted() || isRejected()) {
+  if (isCookiesConsentSet) {
     return null;
   }
 
     const { bem, base } = useBem('ms-cookie-wall');
-
-    
-
 
     return (
         <div className={bem(base, className)}>
