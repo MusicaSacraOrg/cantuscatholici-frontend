@@ -4,45 +4,58 @@ const STORAGE_KEY = 'cookiesChoice';
 
 export type CookiesChoice = 'accepted' | 'rejected' | null;
 
-export function useCookiesConsent() {
-  const [choice, setChoice] = useState<CookiesChoice>(null);
 
+export function useCookiesConsent() {
+  const CONSENT_ACCEPTED = 'accepted';
+  const CONSENT_REJECTED = 'rejected';
+
+  const [isSet, setIsSet] = useState<boolean>(() =>
+    localStorage.getItem(STORAGE_KEY) !== null ||
+    sessionStorage.getItem(STORAGE_KEY) !== null
+  );  
+    useEffect(() => {
+    const handler = () => {
+      setIsSet(
+        localStorage.getItem(STORAGE_KEY) !== null ||
+        sessionStorage.getItem(STORAGE_KEY) !== null
+      );
+    };
+    window.addEventListener('storage', handler);
+    return () => window.removeEventListener('storage', handler);
+  }, []);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as CookiesChoice;
-    if (stored) {
-      setChoice(stored);
-    }
+    const storedLocal = localStorage.getItem(STORAGE_KEY) as CookiesChoice;
+    const storedSession = sessionStorage.getItem(STORAGE_KEY) as CookiesChoice;    
+        if (storedLocal && storedSession) {
+        }
+    
   }, []);
 
   const acceptCookiesConsent = useCallback(() => {
-    localStorage.setItem(STORAGE_KEY, 'accepted');
-    setChoice('accepted');
+if (sessionStorage.getItem(STORAGE_KEY) === CONSENT_REJECTED) {
+      sessionStorage.removeItem(STORAGE_KEY);
+    }
+    localStorage.setItem(STORAGE_KEY, CONSENT_ACCEPTED);
+    setIsSet(true);
   }, []);
 
   const rejectCookiesConsent = useCallback(() => {
-    sessionStorage.setItem(STORAGE_KEY, 'rejected');
-    setChoice('rejected');
+ if (localStorage.getItem(STORAGE_KEY) === CONSENT_ACCEPTED) {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+    sessionStorage.setItem(STORAGE_KEY, CONSENT_REJECTED);
+    setIsSet(true);
   }, []);
 
   const clearCookiesConsent = useCallback(() => {
     localStorage.removeItem(STORAGE_KEY);
-    setChoice(null);
   }, []);
 
-  const isAccepted = useCallback(() => {
-    return localStorage.getItem(STORAGE_KEY) === 'accepted';
-  }, []);
-
-  const isRejected = useCallback(() => {
-    return sessionStorage.getItem(STORAGE_KEY) === 'rejected';
-  }, []);
 
   return {
     acceptCookiesConsent,
     rejectCookiesConsent,
-    clearCookiesConsent,
-    isAccepted,
-    isRejected,
+    isCookiesConsentSet: isSet,
   };
 }
