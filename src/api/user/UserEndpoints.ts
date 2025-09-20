@@ -1,0 +1,11 @@
+import { Endpoints } from '../Endpoints';
+
+export class UserEndpoints extends Endpoints {
+    static getCurrentUser() {
+        return `${this.baseUrl}/user/`;
+    }
+
+    static getUser(id: string) {
+        return `${this.baseUrl}/user/${id}`;
+    }
+}
