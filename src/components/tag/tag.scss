@@ -1,0 +1,21 @@
+@use '../../../src/styles/variables' as *;
+
+.tag {
+    padding: 0.5rem;
+
+    border: $border;
+    border-radius: $border-radius;
+
+    width: fit-content;
+
+    &:hover {
+        background-color: $accent-transparent;
+        cursor: pointer;
+    }
+
+    &-- {
+        &active {
+            background-color: $accent-transparent
+        }
+    }
+}

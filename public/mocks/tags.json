@@ -1,0 +1,19 @@
+{
+  "tags": [
+    {
+      "id": 0,
+      "name": "Intorit",
+      "category": "casti-omse"
+    },
+    {
+      "id": 1,
+      "name": "Offertorium",
+      "category": "casti-omse"
+    },
+    {
+      "id": 2,
+      "name": "Mariánske",
+      "category": "prilezitosti"
+    }
+  ]
+}

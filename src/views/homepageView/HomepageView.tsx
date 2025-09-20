@@ -1,5 +1,6 @@
 import { useBem } from '@musica-sacra/hooks';
 import { LayoutWithSidebar } from '@musica-sacra/layout';
+import { Tag } from '../../components/tag/Tag';
 
 export function HomepageView() {
     const { bem } = useBem('view-homepage');
@@ -10,7 +11,10 @@ export function HomepageView() {
             sidebar={<div>This will be sidebar</div>}
             className={bem()}
         >
-            <div>Homepage view</div>
+            <div>
+                <Tag name={'Vianocne'} color={'green'} />
+                Homepage view
+            </div>
         </LayoutWithSidebar>
     );
 }
