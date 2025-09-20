@@ -9,10 +9,9 @@ type CookieWallProps = {
 
 export function CookieWall({ className = '' }: CookieWallProps) {
     const { acceptCookiesConsent, rejectCookiesConsent, isCookiesConsentSet} = useCookiesConsent();
-
-  if (isCookiesConsentSet) {
-    return null;
-  }
+    if (isCookiesConsentSet()) {
+        return null;
+    }
 
     const { bem, base } = useBem('ms-cookie-wall');
 
