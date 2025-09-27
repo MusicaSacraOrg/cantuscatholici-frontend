@@ -11,16 +11,26 @@ import {
 import { Link } from 'react-router';
 import { Paths } from '../../router/paths';
 import { useState } from 'react';
+import { useLogin } from '../../api/auth/useLogin';
 
 export function LoginView() {
     const { bem } = useBem('view-login');
 
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const loginMutation = useLogin();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        loginMutation.mutate({ email, password });
+    };
 
     return (
         <LayoutBasic isPageLayout={true} className={bem()}>
             <h2>Prihlásenie</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <FormContent>
                     <FormRow>
                         <FormGroup>
@@ -30,13 +40,20 @@ export function LoginView() {
                                 placeholder={'Email'}
                                 type={'email'}
                                 onChange={(e) => setEmail(e.target.value)}
+                                required
                             />
                         </FormGroup>
                     </FormRow>
                     <FormRow>
                         <FormGroup>
                             <Label>Heslo</Label>
-                            <Input placeholder={'Heslo'} type={'password'} />
+                            <Input
+                                required
+                                value={password}
+                                placeholder={'Heslo'}
+                                type={'password'}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
                         </FormGroup>
                     </FormRow>
                     <Button type={'submit'} rounded>

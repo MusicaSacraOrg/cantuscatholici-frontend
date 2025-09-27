@@ -1,9 +1,10 @@
 import { AbstractService } from '../AbstractService';
 import { AuthEndpoints } from './AuthEndpoints';
 import axios from 'axios';
+import { Credentials } from '../../models/auth';
 
 export class AuthService extends AbstractService {
-    static async login(credentials: any) {
+    static async login(credentials: Credentials) {
         return await axios.post(
             AuthEndpoints.login(),
             credentials,
