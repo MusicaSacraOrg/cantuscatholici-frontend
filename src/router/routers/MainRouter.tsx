@@ -21,11 +21,7 @@ export function MainRouter() {
             <Route
                 element={
                     <ProtectedRoutes
-                        allowedRoles={[
-                            Roles.LOGGED_USER,
-                            Roles.REDACTOR,
-                            Roles.ADMIN,
-                        ]}
+                        allowedRoles={[Roles.USER, Roles.REDACTOR, Roles.ADMIN]}
                     />
                 }
             >

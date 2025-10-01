@@ -6,10 +6,11 @@ import {
     NotificationsContext,
     NotificationTypes,
 } from '@musica-sacra/notifications';
+import { useNavigate } from 'react-router';
 
 export function useLogin() {
     const queryClient = useQueryClient();
-
+    const navigate = useNavigate();
     const { addNotification, removeNotification } =
         useContext(NotificationsContext);
 
@@ -25,17 +26,19 @@ export function useLogin() {
         },
         onMutate: () => {
             const loadingNotificationId = addNotification(
-                'Loading ...',
+                'Načítavam',
                 NotificationTypes.LOADING
             );
             return { loadingNotificationId };
         },
-        onSuccess: (user, _, onMutateResult) => {
-            queryClient.setQueryData(['user'], user);
+        onSuccess: ({ data }, _, onMutateResult) => {
+            queryClient.setQueryData(['currentUser'], data);
 
             if (onMutateResult?.loadingNotificationId) {
                 removeNotification(onMutateResult.loadingNotificationId);
             }
+
+            navigate(`/dashboard/${data.id}`);
         },
         onError: (error, _, onMutateResult) => {
             if (onMutateResult?.loadingNotificationId) {

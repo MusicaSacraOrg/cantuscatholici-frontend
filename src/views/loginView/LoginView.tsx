@@ -21,7 +21,7 @@ export function LoginView() {
 
     const loginMutation = useLogin();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault();
 
         loginMutation.mutate({ email, password });

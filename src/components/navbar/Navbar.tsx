@@ -3,10 +3,12 @@ import { useState } from 'react';
 import { Hamburger } from './Hamburger';
 import { useBem } from '@musica-sacra/hooks';
 import { Paths } from '../../router/paths';
+import { useUser } from '../../context/userContext/useUser';
 
 export function Navbar() {
     const { bem, base } = useBem('navbar');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const user = useUser();
 
     const handleMenuToggle = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -26,7 +28,7 @@ export function Navbar() {
                     <NavLink to={Paths.SONGS}>Piesne</NavLink>
                     <NavLink to={Paths.CALENDAR}>Liturgický Kalendár</NavLink>
                     <NavLink to={Paths.ABOUT}>O Projekte</NavLink>
-                    <NavLink to="/login">
+                    <NavLink to={user ? `/dashboard/${user.id}` : '/login'}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             height="30px"

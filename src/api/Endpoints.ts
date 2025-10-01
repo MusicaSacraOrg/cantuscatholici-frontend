@@ -1,6 +1,9 @@
-const baseUrl = '...';
+const baseUrl = 'http://localhost:8000';
 
 export const EndpointsObject = Object.freeze({
+    // Test
+    TEST: `${baseUrl}/`,
+
     USER_LOGIN: `${baseUrl}/api/user/login`,
     USER_REGISTER: `${baseUrl}/api/user/register`,
 
@@ -10,5 +13,5 @@ export const EndpointsObject = Object.freeze({
 });
 
 export class Endpoints {
-    static readonly baseUrl = '...';
+    static readonly baseUrl = 'http://localhost:8000';
 }

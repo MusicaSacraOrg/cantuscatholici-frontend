@@ -1,7 +1,7 @@
 export const Roles = Object.freeze({
-    LOGGED_USER: 'loggedUser',
-    REDACTOR: 'redactor',
-    ADMIN: 'admin',
+    USER: 'User',
+    REDACTOR: 'Redactor',
+    ADMIN: 'Admin',
 });
 
 export type Role = (typeof Roles)[keyof typeof Roles];

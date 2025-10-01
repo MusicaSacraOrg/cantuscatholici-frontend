@@ -1,36 +1,39 @@
 import { Navigate, Outlet } from 'react-router';
 import { Role } from './roles';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import {
     NotificationsContext,
     NotificationTypes,
 } from '@musica-sacra/notifications';
+import { useUser } from '../context/userContext/useUser';
 
 type ProtectedRoutesProps = {
     allowedRoles: Role[];
 };
 
 export function ProtectedRoutes({ allowedRoles }: ProtectedRoutesProps) {
-    // Mocked data
-    // Todo replace with implementation of logged user
-    const user: undefined | { role: Role } = {
-        role: 'admin',
-    };
-
     const { addNotification } = useContext(NotificationsContext);
-    const [shouldRedirect, setShouldRedirect] = useState(false);
+    const { user, authenticatingUser } = useUser();
+
+    console.log('Frodo', user);
 
     useEffect(() => {
-        if (!user || !allowedRoles.includes(user.role)) {
+        if (
+            !authenticatingUser &&
+            (!user || !allowedRoles.includes(user?.role))
+        ) {
             addNotification(
                 'Pre pokračovanie sa prosím prihláste!',
                 NotificationTypes.ERROR
             );
-            setShouldRedirect(true);
         }
-    }, []);
+    }, [authenticatingUser, user, allowedRoles, addNotification]);
 
-    if (shouldRedirect) {
+    if (authenticatingUser) {
+        return <div>Loader... </div>;
+    }
+
+    if (!user || !allowedRoles.includes(user.role)) {
         return <Navigate to="/login" />;
     }
 
