@@ -14,14 +14,8 @@ export function useLogin() {
     const { addNotification, removeNotification } =
         useContext(NotificationsContext);
 
-    // Todo Remove the 2 seconds simuation
-    const delay = (ms: number) =>
-        new Promise((resolve) => setTimeout(resolve, ms));
-
     return useMutation({
-        // Todo Remove the 2 seconds simuation
         mutationFn: async (credentials: Credentials) => {
-            await delay(2000); // simulate 2 seconds loading
             return AuthService.login(credentials);
         },
         onMutate: () => {

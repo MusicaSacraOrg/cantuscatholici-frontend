@@ -6,6 +6,8 @@ import {
     NotificationTypes,
 } from '@musica-sacra/notifications';
 import { useUser } from '../context/userContext/useUser';
+import { Container } from '@musica-sacra/layout';
+import { Loader } from '@musica-sacra/loader';
 
 type ProtectedRoutesProps = {
     allowedRoles: Role[];
@@ -14,8 +16,6 @@ type ProtectedRoutesProps = {
 export function ProtectedRoutes({ allowedRoles }: ProtectedRoutesProps) {
     const { addNotification } = useContext(NotificationsContext);
     const { user, authenticatingUser } = useUser();
-
-    console.log('Frodo', user);
 
     useEffect(() => {
         if (
@@ -30,7 +30,11 @@ export function ProtectedRoutes({ allowedRoles }: ProtectedRoutesProps) {
     }, [authenticatingUser, user, allowedRoles, addNotification]);
 
     if (authenticatingUser) {
-        return <div>Loader... </div>;
+        return (
+            <Container isPageContainer>
+                <Loader />
+            </Container>
+        );
     }
 
     if (!user || !allowedRoles.includes(user.role)) {

@@ -1,0 +1,43 @@
+@use '../../../src/styles/variables' as *;
+
+.view-homepage {
+    .homepage-sidebar {
+        &__sort-filters {
+            display: flex;
+            flex-direction: row;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        &__sort-filter {
+            width: 50%;
+            display: flex;
+            gap: 0.5rem;
+
+            * {
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+
+            &:hover {
+                cursor: pointer;
+                color: $accent
+            }
+
+            &--active {
+                color: $accent;
+            }
+        }
+
+        &__tag-category {
+            padding: 1rem 0;
+        }
+
+        &__tag-category-tags {
+            padding-top: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+    }
+}

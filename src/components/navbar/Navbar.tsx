@@ -8,7 +8,7 @@ import { useUser } from '../../context/userContext/useUser';
 export function Navbar() {
     const { bem, base } = useBem('navbar');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const user = useUser();
+    const { user } = useUser();
 
     const handleMenuToggle = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -25,7 +25,7 @@ export function Navbar() {
                     <NavLink to="/">CantusCatholici</NavLink>
                 </div>
                 <div className={bem('links')}>
-                    <NavLink to={Paths.SONGS}>Piesne</NavLink>
+                    <NavLink to={Paths.HOMEPAGE}>Piesne</NavLink>
                     <NavLink to={Paths.CALENDAR}>Liturgický Kalendár</NavLink>
                     <NavLink to={Paths.ABOUT}>O Projekte</NavLink>
                     <NavLink to={user ? `/dashboard/${user.id}` : '/login'}>

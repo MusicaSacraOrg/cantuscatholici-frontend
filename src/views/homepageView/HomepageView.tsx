@@ -2,22 +2,10 @@ import { useBem } from '@musica-sacra/hooks';
 import { LayoutWithSidebar } from '@musica-sacra/layout';
 import { Tag } from '../../components/tag/Tag';
 import { HomepageSidebar } from './HomepageSidebar';
-import { useQuery } from '@tanstack/react-query';
-
-const fetchTags = () => {
-    return;
-};
+import { FormContent, FormRow, Input } from '@musica-sacra/forms';
 
 export function HomepageView() {
     const { bem } = useBem('view-homepage');
-
-    const { data, isLoading } = useQuery({
-        queryFn: () => fetchTags(),
-        queryKey: ['tags'],
-    });
-
-    // TODO delete console.log
-    console.log(data, isLoading);
 
     return (
         <LayoutWithSidebar
@@ -26,6 +14,17 @@ export function HomepageView() {
             className={bem()}
         >
             <div>
+                <form>
+                    <FormContent>
+                        <FormRow>
+                            <Input
+                                placeholder={
+                                    'Zadaj názov piesne, alebo časť textu'
+                                }
+                            />
+                        </FormRow>
+                    </FormContent>
+                </form>
                 <Tag name={'Vianocne'} color={'green'} />
                 Homepage view
             </div>
