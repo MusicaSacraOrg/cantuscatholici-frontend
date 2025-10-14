@@ -1,0 +1,28 @@
+@use '../../../src/styles/variables' as *;
+
+.sort-filters {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    font-weight: bold;
+
+    .sort-filter {
+        width: 50%;
+        display: flex;
+        gap: 0.5rem;
+
+        * {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: $accent
+        }
+
+        &--active {
+            color: $accent;
+        }
+    }
+}
