@@ -1,0 +1,78 @@
+@use '../../../src/styles/variables' as *;
+
+.song-list {
+    padding-top: 32px;
+
+    &_ {
+        &item {
+            width: 100%;
+            padding: 16px 4px 16px 8px;
+            border-radius: $border-radius;
+
+            &:hover {
+                background-color: $background-secondary;
+            }
+
+            &__ {
+                &summary {
+                    display: flex;
+                    gap: 1rem;
+
+                    width: 100%;
+                }
+
+                &title {
+                    flex: 6;
+                    // font-weight: 500;
+
+                    a {
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+
+                        &:hover {
+                            color: $accent;
+                        }
+                    }
+                }
+                &author {
+                    flex: 3;
+                    color: $tertiary;
+                }
+                &hymnal {
+                    flex: 2;
+                    color: $tertiary;
+                }
+
+                &expand-button {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                &details {
+                    height: 0;
+                    overflow: hidden;
+
+                    display: flex;
+                    gap: 0.5rem;
+                }
+            }
+
+            &-- {
+                &expanded {
+                    background-color: $background-secondary;
+
+                    .song-list_item__details {
+                        height: auto;
+                        overflow: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .hr {
+        margin: 4px 0;
+    }
+}
