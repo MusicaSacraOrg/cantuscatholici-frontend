@@ -1,5 +1,5 @@
 import { useBem } from '@musica-sacra/hooks';
-import { LayoutWithSidebar } from '@musica-sacra/layout';
+import { Queen } from '@musica-sacra/layout';
 import { HomepageSidebar } from './HomepageSidebar';
 import { SearchBar } from '../../components/searchBar/searchBar';
 import { SongList } from '../../components/songList/SongList';
@@ -8,7 +8,7 @@ export function HomepageView() {
     const { bem } = useBem('view-homepage');
 
     return (
-        <LayoutWithSidebar
+        <Queen
             isPageLayout={true}
             sidebar={<HomepageSidebar />}
             className={bem()}
@@ -19,6 +19,6 @@ export function HomepageView() {
                 />
                 <SongList></SongList>
             </div>
-        </LayoutWithSidebar>
+        </Queen>
     );
 }

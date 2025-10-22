@@ -1,5 +1,5 @@
 import { useBem } from '@musica-sacra/hooks';
-import { LayoutBasic } from '@musica-sacra/layout';
+import { Prince } from '@musica-sacra/layout';
 import {
     Button,
     FormContent,
@@ -38,7 +38,7 @@ export function RegisterView() {
     };
 
     return (
-        <LayoutBasic isPageLayout={true} className={bem()}>
+        <Prince isPageLayout={true} className={bem()}>
             <h2>Registrácia</h2>
             <form onSubmit={handleSubmit}>
                 <FormContent>
@@ -134,6 +134,6 @@ export function RegisterView() {
             <p>
                 Máte účet? <Link to={Paths.LOGIN}>Prihlásiť sa.</Link>
             </p>
-        </LayoutBasic>
+        </Prince>
     );
 }

@@ -21,7 +21,7 @@
   "dependencies": {
     "@musica-sacra/forms": "^1.0.4",
     "@musica-sacra/hooks": "^1.2.1",
-    "@musica-sacra/layout": "^1.1.0",
+    "@musica-sacra/layout": "^2.0.1",
     "@musica-sacra/loader": "^1.0.3",
     "@musica-sacra/notifications": "^1.0.1",
     "@tanstack/react-query": "^5.89.0",
