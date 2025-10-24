@@ -1,0 +1,15 @@
+@use '../../../src/styles/variables' as *;
+
+.sidebar-header {
+    &__ {
+        &title {
+            font-size: 24px;
+            font-weight: bold;
+            color: $primary;
+        }
+
+        &subtitle {
+            color: $tertiary;
+        }
+    }
+}

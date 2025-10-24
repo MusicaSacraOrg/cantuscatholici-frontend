@@ -1,0 +1,34 @@
+@use '../../../src/styles/variables' as *;
+
+.admin-dashboard {
+    padding-left: 16px;
+
+    .ms-button {
+        padding: 12px;
+        background-color: $background-primary;
+    }
+}
+
+.link-group {
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    a {
+        &:hover {
+            color: $accent;
+        }
+    }
+}
+
+.headline {
+    .header {
+        font-size: 24px;
+        color: $primary;
+        font-weight: bold;
+    }
+    .role {
+        color: $tertiary;
+    }
+}

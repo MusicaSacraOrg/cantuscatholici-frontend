@@ -8,6 +8,7 @@ import { AdminView } from '../../views/adminView/AdminView';
 import { NotFoundView } from '../../views/notFoundView/NotFoundView';
 import { AboutView } from '../../views/aboutView/AboutView';
 import { RegisterView } from '../../views/registerView/RegisterView';
+import { SongView } from '../../views/songView/SongView';
 
 export function MainRouter() {
     return (
@@ -17,6 +18,7 @@ export function MainRouter() {
             <Route path={Paths.ABOUT} element={<AboutView />} />
             <Route path={Paths.LOGIN} element={<LoginView />} />
             <Route path={Paths.REGISTER} element={<RegisterView />} />
+            <Route path={Paths.SONG_DETAIL} element={<SongView />} />
 
             <Route
                 element={

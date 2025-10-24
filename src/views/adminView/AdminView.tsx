@@ -1,6 +1,7 @@
 import { useBem } from '@musica-sacra/hooks';
 import { Queen } from '@musica-sacra/layout';
 import { Dashboard } from '../../admin/dashboard/Dashboard';
+import { AdminRouter } from '../../router/routers/AdminRouter';
 
 export function AdminView() {
     const { bem } = useBem('view-admin');
@@ -12,7 +13,7 @@ export function AdminView() {
             fullWidth={true}
             className={bem()}
         >
-            Admin view
+            <AdminRouter />
         </Queen>
     );
 }
