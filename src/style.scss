@@ -12,6 +12,8 @@
 @use 'views/registerView/registerView';
 @use 'views/homepageView/homepageView';
 @use 'views/songView/songView';
+@use 'views/calendarView/calendarView';
+@use 'views/aboutView/aboutView';
 
 // COMPONENTS
 @use 'components/exampleComponent/exampleComponent';

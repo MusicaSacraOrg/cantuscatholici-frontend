@@ -9,12 +9,13 @@ import { NotFoundView } from '../../views/notFoundView/NotFoundView';
 import { AboutView } from '../../views/aboutView/AboutView';
 import { RegisterView } from '../../views/registerView/RegisterView';
 import { SongView } from '../../views/songView/SongView';
+import { CalendarView } from '../../views/calendarView/CalendarView';
 
 export function MainRouter() {
     return (
         <Routes>
             <Route path={Paths.HOMEPAGE} element={<HomepageView />} />
-            <Route path={Paths.CALENDAR} element={<div />} />
+            <Route path={Paths.CALENDAR} element={<CalendarView />} />
             <Route path={Paths.ABOUT} element={<AboutView />} />
             <Route path={Paths.LOGIN} element={<LoginView />} />
             <Route path={Paths.REGISTER} element={<RegisterView />} />
