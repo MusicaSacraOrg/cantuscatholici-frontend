@@ -1,0 +1,17 @@
+@use '../../../src/styles/variables' as *;
+
+.song-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .active {
+        color: $accent;
+    }
+}
