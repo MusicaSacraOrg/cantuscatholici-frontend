@@ -9,28 +9,30 @@ import { NotFoundView } from '../../views/notFoundView/NotFoundView';
 import { AboutView } from '../../views/aboutView/AboutView';
 import { RegisterView } from '../../views/registerView/RegisterView';
 import { SongView } from '../../views/songView/SongView';
+import { UserDetailView } from '../../views/userView/UserDetailView';
 
 export function MainRouter() {
-    return (
-        <Routes>
-            <Route path={Paths.HOMEPAGE} element={<HomepageView />} />
-            <Route path={Paths.CALENDAR} element={<div />} />
-            <Route path={Paths.ABOUT} element={<AboutView />} />
-            <Route path={Paths.LOGIN} element={<LoginView />} />
-            <Route path={Paths.REGISTER} element={<RegisterView />} />
-            <Route path={Paths.SONG_DETAIL} element={<SongView />} />
+  return (
+    <Routes>
+      <Route path={Paths.HOMEPAGE} element={<HomepageView />} />
+      <Route path={Paths.CALENDAR} element={<div />} />
+      <Route path={Paths.ABOUT} element={<AboutView />} />
+      <Route path={Paths.LOGIN} element={<LoginView />} />
+      <Route path={Paths.REGISTER} element={<RegisterView />} />
+      <Route path={Paths.SONG_DETAIL} element={<SongView />} />
+      <Route path={Paths.USER_DETAIL} element={<UserDetailView />} />
 
-            <Route
-                element={
-                    <ProtectedRoutes
-                        allowedRoles={[Roles.USER, Roles.REDACTOR, Roles.ADMIN]}
-                    />
-                }
-            >
-                <Route path={Paths.ADMIN_HOME} element={<AdminView />} />
-            </Route>
+      <Route
+        element={
+          <ProtectedRoutes
+            allowedRoles={[Roles.USER, Roles.REDACTOR, Roles.ADMIN]}
+          />
+        }
+      >
+        <Route path={Paths.ADMIN_HOME} element={<AdminView />} />
+      </Route>
 
-            <Route path={'*'} element={<NotFoundView />} />
-        </Routes>
-    );
+      <Route path={'*'} element={<NotFoundView />} />
+    </Routes>
+  );
 }
