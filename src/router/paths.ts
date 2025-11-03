@@ -10,12 +10,12 @@ export const Paths = Object.freeze({
 
     SONG_DETAIL: '/song/:id/*',
 
-    SONG_DETAIL_SHEETS: '/song/:id/sheets',
-    SONG_DETAIL_HYMNOLOGY: '/song/:id/hymnology',
-    SONG_DETAIL_EVENTS: '/song/:id/events',
-    SONG_DETAIL_RELATED: '/song/:id/related',
-    SONG_DETAIL_ARRANGEMENTS: '/song/:id/arrangements',
-    SONG_DETAIL_ARRANGEMENTS_DETAIL: '/song/:id/arrangements/:arrangementId',
+    SONG_DETAIL_SHEETS: 'sheets',
+    SONG_DETAIL_HYMNOLOGY: 'hymnology',
+    SONG_DETAIL_EVENTS: 'events',
+    SONG_DETAIL_RELATED: 'related',
+    SONG_DETAIL_ARRANGEMENTS: 'arrangements',
+    SONG_DETAIL_ARRANGEMENTS_DETAIL: 'arrangements/:arrangementId',
 
     USER_DETAIL: '/user/:id',
 
@@ -37,4 +37,19 @@ export const Paths = Object.freeze({
     ADMIN_SONG_EDIT: '/dashboard/:userId/song/:id/edit',
     ADMIN_SONG_DETAIL: '/dashboard/:userId/song/:id/detail',
     ADMIN_SONG_CREATE: '/dashboard/:userId/song/:id/create',
+    // editacia piesni aj pre uzivatela, domysliet co moze a co nie
+    // redaktor ma moznost pridavat oficialny obsah
+    // v MVP by som asi obmedzil to co moze pridat bezny uzivatel
+
+    // Editacia userov pre admina
+    // upravovat, mazat, povysovat a ponizovat ucty
+
+    // vymazat ucet a vsetok moj pridany content
+
+    // reviews pre admina a redaktora
+    // aprovovat uzivatelsky obsah, povysovat na oficialny
+
+    // editacia uprav a medzihier
+
+    // editacia eventov pre redaktora a admina
 });
