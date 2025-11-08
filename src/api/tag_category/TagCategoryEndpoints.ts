@@ -1,23 +1,24 @@
 import { Endpoints } from '../Endpoints';
 
 export class TagCategoryEndpoints extends Endpoints {
-    static getTags() {
-        return `${this.baseUrl}/tag_category`;
+    static getTagCategories() {
+        //return `${this.baseUrl}/tag_category`;
+        return '/mocks/tagCategories.json';
     }
 
-    static getTag(id: string) {
+    static getTagCategory(id: string) {
         return `${this.baseUrl}/tag_category/${id}`;
     }
 
-    static createTag() {
+    static createTagCategory() {
         return `${this.baseUrl}/tag_category/create`;
     }
 
-    static updateTag(id: string) {
+    static updateTagCategory(id: string) {
         return `${this.baseUrl}/tag_category/update/${id}`;
     }
 
-    static deleteTag(id: string) {
+    static deleteTagCategory(id: string) {
         return `${this.baseUrl}/tag_category/delete/${id}`;
     }
 }

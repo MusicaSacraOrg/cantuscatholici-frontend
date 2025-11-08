@@ -1,4 +1,4 @@
-import { AbstractService } from '../AbstractService';
+import { AbstractService } from '@musica-sacra/api';
 import { AuthEndpoints } from './AuthEndpoints';
 import axios from 'axios';
 import { Credentials, NewUser, Token } from '../../models/auth';
@@ -6,9 +6,7 @@ import { User } from '../../models/user';
 import qs from 'qs';
 
 export class AuthService extends AbstractService {
-    static async login(credentials: Credentials) {
-        console.log(credentials);
-
+    async login(credentials: Credentials) {
         const { data: token } = await axios.post<Token>(
             AuthEndpoints.login(),
             qs.stringify({
@@ -27,7 +25,7 @@ export class AuthService extends AbstractService {
         return await this.getCurrentUser();
     }
 
-    static async register(user: NewUser) {
+    async register(user: NewUser) {
         const { data: token } = await axios.post<Token>(
             AuthEndpoints.register(),
             user,
@@ -39,7 +37,7 @@ export class AuthService extends AbstractService {
         return await this.getCurrentUser();
     }
 
-    static async getCurrentUser() {
+    async getCurrentUser() {
         return await axios.get<User>(
             AuthEndpoints.getCurrentUser(),
             this.getHeaders()
