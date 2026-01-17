@@ -16,5 +16,4 @@ export type User = Person & {
 
 export type UserDetail = User & {
     avatar?: string;
-    descriptions?: string;
 };

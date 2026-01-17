@@ -7,7 +7,7 @@ import {
 } from '@musica-sacra/notifications';
 import { Loader } from '@musica-sacra/loader';
 
-export function useUserDetail(id: string | undefined | null) {
+export function useGetUser(id: string) {
     const { addNotification, removeNotification } =
         useContext(NotificationsContext);
     const loadingNotificationId = useRef<string | null>(null);
@@ -15,13 +15,9 @@ export function useUserDetail(id: string | undefined | null) {
     const query = useQuery({
         queryKey: ['user', id],
         queryFn: async () => {
-            if (!id) throw new Error('No id provided');
             const response = await UserService.getUser(id);
             return response.data;
         },
-        enabled: !!id,
-        staleTime: Infinity,
-        gcTime: Infinity,
     });
 
     // Manage loading notification lifecycle

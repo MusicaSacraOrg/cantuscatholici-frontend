@@ -10,7 +10,7 @@ import { AboutView } from '../../views/aboutView/AboutView';
 import { RegisterView } from '../../views/registerView/RegisterView';
 import { SongView } from '../../views/songView/SongView';
 import { CalendarView } from '../../views/calendarView/CalendarView';
-import { UserDetailView } from '../../views/userView/UserDetailView';
+import { UserDetailView } from '../../views/userDetailView/UserDetailView';
 
 export function MainRouter() {
     return (
