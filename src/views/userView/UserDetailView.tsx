@@ -9,6 +9,7 @@ import {
     NotificationsContext,
     NotificationTypes,
 } from '@musica-sacra/notifications';
+import { UserDetail } from '../../models/user';
 
 export function UserDetailView() {
     const { bem } = useBem('view-user');
@@ -17,22 +18,24 @@ export function UserDetailView() {
     const [showNumber, setShowNumber] = useState(false);
     const { addNotification } = useContext(NotificationsContext);
 
+    const userDetail = user as UserDetail | null;
     const description =
-        (user && (user.description || (user as any).descriptions)) || '';
+        (userDetail && (userDetail.description || userDetail.descriptions)) ||
+        '';
 
     return (
         <Prince isPageLayout={true} className={bem()}>
             {isLoading && <Loader />}
             {isError && <div>Chyba pri načítaní používateľa</div>}
-            {!isLoading && user && (
+            {!isLoading && userDetail && (
                 <>
                     <div className={bem('profile')}>
                         <div className={bem('profile-inner')}>
                             <div className={bem('avatar')} aria-hidden>
-                                {((user as any).avatar as string) ? (
+                                {userDetail.avatar ? (
                                     <img
-                                        src={(user as any).avatar as string}
-                                        alt={`${user.name} ${user.surname}`}
+                                        src={userDetail.avatar}
+                                        alt={`${userDetail.name} ${userDetail.surname}`}
                                         className={bem('avatar-img')}
                                         onError={(e) => {
                                             // hide broken image and keep placeholder background
@@ -47,12 +50,16 @@ export function UserDetailView() {
                             <div className={bem('main')}>
                                 <div className={bem('profile-header')}>
                                     <h1 className={bem('name')}>
-                                        {user.name} {user.surname}
+                                        {userDetail.name} {userDetail.surname}
                                     </h1>
-                                    <h2 className={bem('role')}>{user.role}</h2>
+                                    <h2 className={bem('role')}>
+                                        {userDetail.role}
+                                    </h2>
                                 </div>
 
-                                <p className={bem('email')}>{user.email}</p>
+                                <p className={bem('email')}>
+                                    {userDetail.email}
+                                </p>
 
                                 <div className={bem('mobile')}>
                                     {!showNumber ? (
@@ -67,20 +74,20 @@ export function UserDetailView() {
                                             <span
                                                 className={bem('mobile-number')}
                                             >
-                                                {user.mobile}
+                                                {userDetail.mobile}
                                             </span>
                                             <button
                                                 className={bem('copy-number')}
                                                 onClick={async () => {
                                                     try {
                                                         await navigator.clipboard.writeText(
-                                                            user.mobile
+                                                            userDetail.mobile
                                                         );
                                                         addNotification(
                                                             'Tel. číslo skopírované',
                                                             NotificationTypes.SUCCESS
                                                         );
-                                                    } catch (e) {
+                                                    } catch {
                                                         addNotification(
                                                             'Kopírovanie zlyhalo',
                                                             NotificationTypes.ERROR
@@ -110,7 +117,9 @@ export function UserDetailView() {
                     </div>
                 </>
             )}
-            {!isLoading && !user && !isError && <div>Používateľ nenájdený</div>}
+            {!isLoading && !userDetail && !isError && (
+                <div>Používateľ nenájdený</div>
+            )}
         </Prince>
     );
 }

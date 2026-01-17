@@ -13,3 +13,8 @@ export type User = Person & {
     role: Role;
     registeredAt: Date;
 };
+
+export type UserDetail = User & {
+    avatar?: string;
+    descriptions?: string;
+};

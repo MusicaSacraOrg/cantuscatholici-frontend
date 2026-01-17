@@ -2,9 +2,10 @@ import { useBem } from '@musica-sacra/hooks';
 import { Link } from 'react-router';
 import { useState } from 'react';
 import { Tag } from '../tag/Tag';
+import { Song } from '../../models/song';
 
 type SongListItemProps = {
-    song: any;
+    song: Song;
 };
 
 export function SongListItem({ song }: SongListItemProps) {

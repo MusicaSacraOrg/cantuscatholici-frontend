@@ -1,6 +1,5 @@
 const glob = require('glob');
 const fs = require('fs');
-const path = require('path');
 
 const scssFiles = glob.sync('node_modules/@musica-sacra/**/dist/**/*.scss');
 
