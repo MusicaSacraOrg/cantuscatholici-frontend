@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "id": 0,
+      "name": "1. nedela v roku A",
+      "description": "Lorem ipsum",
+      "date": {
+        "day": 1,
+        "month": 12
+      }
+    },
+    {
+      "id": 1,
+      "name": "2. nedela v roku A",
+      "description": "Lorem ipsum",
+      "date": null
+    }
+  ]
+}

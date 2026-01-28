@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": "0",
+      "name": "Adventné obdobie"
+    },
+    {
+      "id": "1",
+      "name": "Vianočné obdobie"
+    },
+    {
+      "id": "2",
+      "name": "Pôstne obdobie"
+    },
+    {
+      "id": "3",
+      "name": "Veľkonočné obdobie"
+    },
+    {
+      "id": "4",
+      "name": "Cezročné obdobie"
+    },
+    {
+      "id": "5",
+      "name": "Slávnosti Pána"
+    },
+    {
+      "id": "6",
+      "name": "Sviatky svätých"
+    },
+    {
+      "id": "7",
+      "name": "Spoločné omše"
+    },
+    {
+      "id": "8",
+      "name": "Sviatosti, sväteniny a za zosnulých"
+    },
+  ]
+}
