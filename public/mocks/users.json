@@ -5,10 +5,10 @@
       "email": "admin@musicasacra.com",
       "mobile": "+421918958527",
       "registeredAt": "timestamp",
-      "role": "admin",
+      "role": "Admin",
       "name": "Admin",
       "surname": "AdminSurname",
-      "descriptions": "Some description provided here",
+      "description": "Some description provided here",
       "avatar": "some url"
     },
     {
@@ -16,10 +16,10 @@
       "email": "redactor@musicasacra.com",
       "mobile": "+421918958527",
       "registeredAt": "timestamp",
-      "role": "redactor",
+      "role": "Redactor",
       "name": "Redactor",
       "surname": "RedactorSurname",
-      "descriptions": "Some description provided here",
+      "description": "Some description provided here",
       "avatar": "some url"
     },
     {
@@ -27,10 +27,10 @@
       "email": "user1@musicasacra.com",
       "mobile": "+421918958527",
       "registeredAt": "timestamp",
-      "role": "user",
+      "role": "User",
       "name": "User1",
       "surname": "User1",
-      "descriptions": "Some description provided here that is extra long lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis eros quis nisl tincidunt tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;",
+      "description": "Some description provided here that is extra long lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis eros quis nisl tincidunt tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;",
       "avatar": "some url"
     },
     {
@@ -38,10 +38,21 @@
       "email": "user2@musicasacra.com",
       "mobile": "+421918958527",
       "registeredAt": "timestamp",
-      "role": "user",
+      "role": "User",
       "name": "User2",
       "surname": "User2",
-      "descriptions": "Some description provided here",
+      "description": "Some description provided here",
+      "avatar": "some url"
+    },
+    {
+      "id": 4,
+      "email": "subidubi@musicasacra.com",
+      "mobile": "+421900123456",
+      "registeredAt": "timestamp",
+      "role": "User",
+      "name": "Šubi",
+      "surname": "Dubi",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.\n\nQuis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "avatar": "some url"
     }
   ]

@@ -1,0 +1,19 @@
+@use '../../../src/styles/variables' as *;
+
+.view-user-detail {
+  .ms-container {
+    max-width: 800px;
+  }
+
+  &__ {
+    &profile,
+    &songs {
+      border-radius: $border-radius-medium;
+      padding: 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}

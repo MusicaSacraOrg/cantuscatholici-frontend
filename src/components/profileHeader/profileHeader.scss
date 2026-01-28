@@ -1,0 +1,19 @@
+@use '../../../src/styles/variables' as *;
+
+.profile-header {
+    &__ {
+        &name {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        &role {
+            margin: 0.25rem 0 0 0;
+            font-size: 0.95rem;
+            color: $tertiary;
+            text-align: left;
+        }
+    }
+}

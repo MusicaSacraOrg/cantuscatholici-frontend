@@ -1,5 +1,8 @@
 import type { Preview } from '@storybook/react';
 import { MemoryRouter } from 'react-router';
+import { NotificationsContextProvider } from '@musica-sacra/notifications';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { UserProvider } from '../src/context/userContext/UserContextProvider';
 
 declare const require: {
     context: (
@@ -20,6 +23,15 @@ const scssReq = require.context(
 
 scssReq.keys().forEach(scssReq); // Import each one
 
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            retry: false,
+            refetchOnWindowFocus: false,
+        },
+    },
+});
+
 const preview: Preview = {
     parameters: {
         actions: { argTypesRegex: '^on[A-Z].*' },
@@ -32,9 +44,15 @@ const preview: Preview = {
     },
     decorators: [
         (Story) => (
-            <MemoryRouter>
-                <Story />
-            </MemoryRouter>
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <UserProvider>
+                        <NotificationsContextProvider>
+                            <Story />
+                        </NotificationsContextProvider>
+                    </UserProvider>
+                </MemoryRouter>
+            </QueryClientProvider>
         ),
     ],
 };

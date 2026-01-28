@@ -7,7 +7,7 @@ export function NotFoundView() {
     return (
         <Prince isPageLayout={true} className={bem()}>
             <h2>404</h2>
-            <p>Ľutujeme, zadanú adresu sa nepodarilo náisť</p>
+            <p>Ľutujeme, zadanú adresu sa nepodarilo nájsť</p>
         </Prince>
     );
 }

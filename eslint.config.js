@@ -18,7 +18,14 @@ export default defineConfig([
         extends: ['js/recommended'],
     },
     tseslint.configs.recommended,
-    pluginReact.configs.flat.recommended,
+    {
+        ...pluginReact.configs.flat.recommended,
+        settings: {
+            react: {
+                version: 'detect',
+            },
+        },
+    },
     prettier,
     {
         files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],

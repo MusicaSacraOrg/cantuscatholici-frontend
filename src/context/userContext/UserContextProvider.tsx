@@ -3,6 +3,7 @@ import { useGetCurrentUser } from '../../api/auth/useGetCurrentUser';
 import { User } from '../../models/user';
 import { useNavigate } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
+import { ReactNode } from 'react';
 
 type UserContextType = {
     user: User | null;
@@ -14,7 +15,11 @@ export const UserContext = createContext<UserContextType | undefined>(
     undefined
 );
 
-function UserProvider(props: any) {
+type UserProviderProps = {
+    children: ReactNode;
+};
+
+function UserProvider(props: UserProviderProps) {
     const { data: user, isLoading } = useGetCurrentUser();
     const navigate = useNavigate();
     const queryClient = useQueryClient();
