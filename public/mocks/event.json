@@ -7,41 +7,23 @@
       "day": 1,
       "month": 12
     },
-    "introit": {
-      "songs": [
-        {
-          "id": "1",
-          "title": "Nazov piesne 1",
-          "songPart": 5,
-          "songPartName": "piata sloha",
-          "prescribed": true
-        },
-        {
-          "id": "2",
-          "title": "Nazov piesne 2",
-          "songPart": null,
-          "songPartName": null,
-          "prescribed": false
-        }
-      ]
-    },
-    "zaver": {
-      "songs": [
-        {
-          "id": "3",
-          "title": "Nazov piesne 3",
-          "songPart": 5,
-          "songPartName": "piata sloha",
-          "prescribed": true
-        },
-        {
-          "id": "4",
-          "title": "Nazov piesne 4",
-          "songPart": null,
-          "songPartName": null,
-          "prescribed": false
-        }
-      ]
-    }
+    "songs": [
+      {
+        "id": "1",
+        "title": "Nazov piesne 1",
+        "songPart": 5,
+        "songPartName": "piata sloha",
+        "prescribed": true,
+        "eventPart": "Introit"
+      },
+      {
+        "id": "2",
+        "title": "Nazov piesne 2",
+        "songPart": null,
+        "songPartName": null,
+        "prescribed": false,
+        "eventPart": "Zaver"
+      }
+    ]
   }
 }
