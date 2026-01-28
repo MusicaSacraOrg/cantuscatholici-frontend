@@ -8,6 +8,8 @@ import {
 } from '@musica-sacra/notifications';
 import { useNavigate } from 'react-router';
 
+const authService = new AuthService();
+
 export function useLogin() {
     const queryClient = useQueryClient();
     const navigate = useNavigate();
@@ -16,7 +18,7 @@ export function useLogin() {
 
     return useMutation({
         mutationFn: async (credentials: Credentials) => {
-            return AuthService.login(credentials);
+            return authService.login(credentials);
         },
         onMutate: () => {
             const loadingNotificationId = addNotification(

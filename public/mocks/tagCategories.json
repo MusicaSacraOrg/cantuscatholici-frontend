@@ -1,52 +1,44 @@
 {
-  "tagCategories": [
+  "items": [
     {
+      "id": 1,
       "name": "Obdobie",
       "tags": [
         {
           "id": 0,
           "name": "Intorit",
-          "category": "casti-omse"
+          "color": "blue"
         },
         {
           "id": 1,
           "name": "Offertorium",
-          "category": "casti-omse"
+          "color": "yellow"
         },
         {
           "id": 2,
           "name": "Mariánske",
-          "category": "prilezitosti"
+          "color": "blue"
         }
       ]
     },
     {
+      "id": 2,
       "name": "Časti omše",
       "tags": [
         {
-          "id": 0,
+          "id": 10,
           "name": "Intorit",
-          "category": "casti-omse"
+          "color": "blue"
         },
         {
-          "id": 1,
+          "id": 11,
           "name": "Offertorium",
-          "category": "casti-omse"
+          "color": "yellow"
         },
         {
-          "id": 2,
+          "id": 12,
           "name": "Mariánske",
-          "category": "prilezitosti"
-        },
-        {
-          "id": 3,
-          "name": "Offertorium",
-          "category": "casti-omse"
-        },
-        {
-          "id": 4,
-          "name": "Mariánske",
-          "category": "prilezitosti"
+          "color": "blue"
         }
       ]
     }

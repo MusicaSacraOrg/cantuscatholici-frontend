@@ -8,6 +8,8 @@ import { AuthService } from './AuthService';
 import { NewUser } from '../../models/auth';
 import { useNavigate } from 'react-router';
 
+const authService = new AuthService();
+
 export function useRegister() {
     const queryClient = useQueryClient();
     const navigate = useNavigate();
@@ -16,7 +18,7 @@ export function useRegister() {
 
     return useMutation({
         mutationFn: async (newUser: NewUser) => {
-            return await AuthService.register(newUser);
+            return await authService.register(newUser);
         },
         onMutate: () => {
             const loadingNotificationId = addNotification(

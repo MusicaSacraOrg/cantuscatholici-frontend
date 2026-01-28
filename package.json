@@ -19,6 +19,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@musica-sacra/api": "^1.0.0",
     "@musica-sacra/forms": "^1.0.4",
     "@musica-sacra/hooks": "^1.2.1",
     "@musica-sacra/layout": "^2.0.1",
