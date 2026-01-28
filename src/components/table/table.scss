@@ -1,0 +1,99 @@
+@use '../../../src/styles/variables' as *;
+
+.table {
+    width: 100%;
+    overflow-x: scroll;
+
+    background-color: $background-secondary;
+
+    padding: 1rem;
+
+    border-radius: $border-radius;
+
+    &__ {
+        &content {
+            min-width: 1000px;
+            width: 100%;
+        }
+
+        &header {
+            display: flex;
+            font-weight: bold;
+            gap: 1rem;
+            padding: 1rem 8px;
+        }
+
+        &row {
+            display: flex;
+            gap: 1rem;
+            padding: 8px;
+            border-radius: 12px;
+
+            &:hover {
+                background-color: $background-primary;
+            }
+        }
+
+        &column {
+            width: 100%;
+
+            &-- {
+                &small {
+                    flex: 0 0 120px; // fixed-ish
+                    min-width: 100px;
+                    max-width: 160px;
+                }
+                &medium {
+                    flex: 1 1 200px; // flexible
+                    min-width: 150px;
+                }
+                &large {
+                    flex: 2 1 300px; // grows more
+                    min-width: 200px;
+                }
+
+                &sort-filter {
+                    .sort-filter {
+                        display: flex;
+                        width: fit-content;
+
+                        &:hover {
+                            cursor: pointer;
+                            color: $accent;
+                        }
+
+                        &--active {
+                            color: $accent;
+                        }
+                    }
+                }
+
+                &actions {
+                    display: flex;
+                    gap: 1rem;
+                    justify-content: flex-end;
+
+                    width: 100px;
+                }
+            }
+        }
+
+        &icon {
+            svg {
+                fill: $primary;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                svg {
+                    fill: $accent;
+                }
+            }
+        }
+    }
+
+    .hr {
+        margin: 4px 0;
+    }
+}

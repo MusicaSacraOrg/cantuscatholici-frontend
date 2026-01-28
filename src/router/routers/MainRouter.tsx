@@ -30,7 +30,7 @@ export function MainRouter() {
                     />
                 }
             >
-                <Route path={Paths.ADMIN_HOME} element={<AdminView />} />
+                <Route path={Paths.ADMIN} element={<AdminView />} />
             </Route>
 
             <Route path={'*'} element={<NotFoundView />} />

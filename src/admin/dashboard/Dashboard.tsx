@@ -2,12 +2,14 @@ import { useBem } from '@musica-sacra/hooks';
 import { Hr } from '../../components/hr/Hr';
 import { Button } from '@musica-sacra/forms';
 import { useUser } from '../../context/userContext/useUser';
-import { NavLink } from 'react-router';
+import { NavLink, useParams } from 'react-router';
 import { SidebarHeader } from '../../components/sidebarHeader/SidebarHeader';
 
 export function Dashboard() {
     const { bem } = useBem('admin-dashboard');
     const { logout } = useUser();
+
+    const { userId } = useParams();
 
     return (
         <div className={bem()}>
@@ -21,16 +23,16 @@ export function Dashboard() {
             </Button>
             <Hr />
             <div className={'link-group'}>
-                <NavLink to={'/'}>Upraviť profil</NavLink>
-                <NavLink to={'/'}>Resetovať heslo</NavLink>
-                <NavLink to={'/'}>Upraviť profil</NavLink>
-                <NavLink to={'/'}>Resetovať heslo</NavLink>
+                <NavLink to={`/dashboard/${userId}/*`}>Upraviť profil</NavLink>
+                <NavLink to={`/dashboard/${userId}/`}>Resetovať heslo</NavLink>
+                <NavLink to={`/dashboard/${userId}/`}>Upraviť profil</NavLink>
+                <NavLink to={`/dashboard/${userId}/`}>Resetovať heslo</NavLink>
                 <br />
-                <NavLink to={'/'}>Upraviť profil</NavLink>
-                <NavLink to={'/'}>Resetovať heslo</NavLink>
+                <NavLink to={`/dashboard/${userId}/`}>Upraviť profil</NavLink>
+                <NavLink to={`/dashboard/${userId}/`}>Resetovať heslo</NavLink>
                 <br />
-                <NavLink to={'/'}>Upraviť profil</NavLink>
-                <NavLink to={'/'}>Resetovať heslo</NavLink>
+                <NavLink to={`/dashboard/${userId}/`}>Upraviť profil</NavLink>
+                <NavLink to={`/dashboard/${userId}/`}>Resetovať heslo</NavLink>
             </div>
         </div>
     );

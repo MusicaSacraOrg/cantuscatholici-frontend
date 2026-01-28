@@ -3,7 +3,7 @@ import { Paths } from '../paths';
 import { NotFoundView } from '../../views/notFoundView/NotFoundView';
 import { ProtectedRoutes } from '../ProtectedRoutes';
 import { Roles } from '../roles';
-import { DefaultAdminView } from '../../admin/views/DefaultAdminView';
+import { DefaultAdminView } from '../../admin/pages/DefaultAdminView';
 
 export function AdminRouter() {
     return (

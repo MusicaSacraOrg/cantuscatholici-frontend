@@ -1,4 +1,4 @@
-import { AbstractService } from '../AbstractService';
+import { AbstractService } from '@musica-sacra/api';
 import { UserEndpoints } from './UserEndpoints';
 import axios from 'axios';
 import { User } from '../../models/user';

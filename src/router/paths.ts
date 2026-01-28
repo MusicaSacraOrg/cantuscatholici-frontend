@@ -19,7 +19,10 @@ export const Paths = Object.freeze({
 
     USER_DETAIL: '/user/:id',
 
-    ADMIN_HOME: '/dashboard/:userId/*',
+    ADMIN: '/dashboard/:userId/*',
+
+    ADMIN_HOME: 'home',
+
     ADMIN_EDIT_PROFILE: '/dashboard/:userId/edit',
     ADMIN_RESET_PASSWORD: '/dashboard/:userId/reset-password',
 

@@ -29,17 +29,17 @@ export function ProtectedRoutes({ allowedRoles }: ProtectedRoutesProps) {
         }
     }, [authenticatingUser, user, allowedRoles, addNotification]);
 
-    if (authenticatingUser) {
-        return (
-            <Container isPageContainer>
-                <Loader />
-            </Container>
-        );
-    }
-
-    if (!user || !allowedRoles.includes(user.role)) {
-        return <Navigate to="/login" />;
-    }
+    // if (authenticatingUser) {
+    //     return (
+    //         <Container isPageContainer>
+    //             <Loader />
+    //         </Container>
+    //     );
+    // }
+    //
+    // if (!user || !allowedRoles.includes(user.role)) {
+    //     return <Navigate to="/login" />;
+    // }
 
     return <Outlet />;
 }
