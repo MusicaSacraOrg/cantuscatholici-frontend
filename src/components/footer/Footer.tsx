@@ -1,6 +1,7 @@
 import { useBem } from '@musica-sacra/hooks';
 import { Hr } from '../hr/Hr';
 import { Link } from 'react-router';
+import { Paths } from '../../router/paths';
 
 export function Footer() {
     const { bem } = useBem('footer');
@@ -20,25 +21,31 @@ export function Footer() {
                         </a>
                         <p>Lorem ipsum lorem ipsum, lorem ipsum, lorem ipsum</p>
                         <ul>
-                            <li>info@musicasacra.sk</li>
+                            <li>info@musicasacraorg.sk</li>
                             <li>+421 918 958 527</li>
                         </ul>
                     </div>
                     <div className={bem('column')}>
                         <h3>Zdroje</h3>
                         <ul>
-                            <li>Dokumentácia</li>
-                            <li>O Projekte</li>
+                            <li>
+                                <Link to={Paths.DOCS}>Dokumentácia</Link>
+                            </li>
+                            <li>
+                                <Link to={Paths.ABOUT}>O Projekte</Link>
+                            </li>
                         </ul>
                     </div>
                     <div className={bem('column')}>
                         <h3>Obsah</h3>
                         <ul>
                             <li>
-                                <Link to={''}>Piesne</Link>
+                                <Link to={Paths.HOMEPAGE}>Piesne</Link>
                             </li>
                             <li>
-                                <Link to={''}>Liturgický kalendár</Link>
+                                <Link to={Paths.CALENDAR}>
+                                    Liturgický kalendár
+                                </Link>
                             </li>
                         </ul>
                     </div>

@@ -11,6 +11,7 @@ import { RegisterView } from '../../views/registerView/RegisterView';
 import { SongView } from '../../views/songView/SongView';
 import { CalendarView } from '../../views/calendarView/CalendarView';
 import { UserDetailView } from '../../views/userDetailView/UserDetailView';
+import { DocsView } from '../../views/docsView/DocsView';
 
 export function MainRouter() {
     return (
@@ -18,6 +19,7 @@ export function MainRouter() {
             <Route path={Paths.HOMEPAGE} element={<HomepageView />} />
             <Route path={Paths.CALENDAR} element={<CalendarView />} />
             <Route path={Paths.ABOUT} element={<AboutView />} />
+            <Route path={Paths.DOCS} element={<DocsView />} />
             <Route path={Paths.LOGIN} element={<LoginView />} />
             <Route path={Paths.REGISTER} element={<RegisterView />} />
             <Route path={Paths.SONG_DETAIL} element={<SongView />} />

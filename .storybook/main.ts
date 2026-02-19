@@ -1,20 +1,9 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
-import * as path from 'path';
-import { createRequire } from 'module';
-import { fileURLToPath } from 'url';
-
-// For ES modules compatibility with CommonJS require
-// @ts-expect-error - import.meta is valid in ES modules (package.json has "type": "module")
-// TypeScript's main config uses CommonJS, but Storybook runs in ES module context
-const require = createRequire(import.meta.url);
-// @ts-expect-error - import.meta is valid in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import path from 'path';
 
 const config: StorybookConfig = {
     stories: [
         '../src/**/__tests__/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-        // Temporarily disabled - these stories have import errors
         // '../node_modules/@musica-sacra/**/__tests__/*.stories.@(js|jsx|mjs|ts|tsx)',
     ],
     addons: [
