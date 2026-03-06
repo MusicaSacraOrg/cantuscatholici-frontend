@@ -10,6 +10,8 @@ import { TagCategoryListView } from '../../admin/pages/tagCategory/TagCategoryLi
 import { TagCategoryFormView } from '../../admin/pages/tagCategory/TagCategoryFormView';
 import { TagListView } from '../../admin/pages/tag/TagListView';
 import { TagFormView } from '../../admin/pages/tag/TagFormView';
+import { SongListView } from '../../admin/pages/song/SongListView';
+import { SongFormView } from '../../admin/pages/song/SongFormView';
 
 export function AdminRouter() {
     return (
@@ -41,11 +43,11 @@ export function AdminRouter() {
             >
                 <Route
                     path={Paths.ADMIN_SONG_LIST}
-                    element={<DefaultAdminView />}
+                    element={<SongListView />}
                 />
                 <Route
                     path={Paths.ADMIN_SONG_EDIT}
-                    element={<DefaultAdminView />}
+                    element={<SongFormView />}
                 />
                 <Route
                     path={Paths.ADMIN_SONG_DETAIL}
@@ -53,7 +55,7 @@ export function AdminRouter() {
                 />
                 <Route
                     path={Paths.ADMIN_SONG_CREATE}
-                    element={<DefaultAdminView />}
+                    element={<SongFormView />}
                 />
             </Route>
 

@@ -7,7 +7,7 @@ import {
     InputGroup,
     Label,
 } from '@musica-sacra/forms';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useContext, useEffect, useState, FormEvent } from 'react';
 import {
@@ -20,6 +20,7 @@ import { useUser } from '../../../context/userContext/useUser';
 
 export function EditProfileView() {
     const navigate = useNavigate();
+    const { userId } = useParams();
     const queryClient = useQueryClient();
     const { addNotification } = useContext(NotificationsContext);
     const { user } = useUser();
@@ -65,7 +66,7 @@ export function EditProfileView() {
                 'Profil bol aktualizovaný',
                 NotificationTypes.SUCCESS
             );
-            navigate('/dashboard');
+            navigate(`/dashboard/${userId}/home`);
         },
         onError: () => {
             addNotification(

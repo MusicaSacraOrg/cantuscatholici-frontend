@@ -7,7 +7,7 @@ import {
     InputGroup,
     Label,
 } from '@musica-sacra/forms';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useMutation } from '@tanstack/react-query';
 import { useContext, useState, FormEvent } from 'react';
 import {
@@ -19,6 +19,7 @@ import { UserEndpoints } from '../../../api/user/UserEndpoints';
 
 export function ResetPasswordView() {
     const navigate = useNavigate();
+    const { userId } = useParams();
     const { addNotification } = useContext(NotificationsContext);
 
     const [oldPassword, setOldPassword] = useState('');
@@ -40,7 +41,7 @@ export function ResetPasswordView() {
         },
         onSuccess: () => {
             addNotification('Heslo bolo zmenené', NotificationTypes.SUCCESS);
-            navigate('/dashboard');
+            navigate(`/dashboard/${userId}/home`);
         },
         onError: (error) => {
             const message =
