@@ -29,8 +29,8 @@ export function DefaultAdminView() {
                         isSortFilter: false,
                     },
                 ]}
-                onEdit={(item) => console.log('Edit:', item)}
-                onDelete={(item) => console.log('Delete:', item)}
+                onEdit={() => {}}
+                onDelete={() => {}}
             ></Table>
         </Container>
     );

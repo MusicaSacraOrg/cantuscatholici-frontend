@@ -4,6 +4,8 @@ import { NotFoundView } from '../../views/notFoundView/NotFoundView';
 import { ProtectedRoutes } from '../ProtectedRoutes';
 import { Roles } from '../roles';
 import { DefaultAdminView } from '../../admin/pages/DefaultAdminView';
+import { EditProfileView } from '../../admin/pages/profile/EditProfileView';
+import { ResetPasswordView } from '../../admin/pages/profile/ResetPasswordView';
 import { TagCategoryListView } from '../../admin/pages/tagCategory/TagCategoryListView';
 import { TagCategoryFormView } from '../../admin/pages/tagCategory/TagCategoryFormView';
 import { TagListView } from '../../admin/pages/tag/TagListView';
@@ -22,11 +24,11 @@ export function AdminRouter() {
                 <Route path={Paths.ADMIN_HOME} element={<DefaultAdminView />} />
                 <Route
                     path={Paths.ADMIN_EDIT_PROFILE}
-                    element={<DefaultAdminView />}
+                    element={<EditProfileView />}
                 />
                 <Route
                     path={Paths.ADMIN_RESET_PASSWORD}
-                    element={<DefaultAdminView />}
+                    element={<ResetPasswordView />}
                 />
             </Route>
 
