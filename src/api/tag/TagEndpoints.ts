@@ -2,22 +2,22 @@ import { Endpoints } from '../Endpoints';
 
 export class TagEndpoints extends Endpoints {
     static getTags() {
-        return `${this.baseUrl}/tags`;
+        return `${this.baseUrl}/api/tag/`;
     }
 
-    static getTag(id: string) {
-        return `${this.baseUrl}/tags/${id}`;
+    static getTag(id: string | number) {
+        return `${this.baseUrl}/api/tag/${id}`;
     }
 
     static createTag() {
-        return `${this.baseUrl}/tags/create`;
+        return `${this.baseUrl}/api/tag/`;
     }
 
-    static updateTag(id: string) {
-        return `${this.baseUrl}/tags/update/${id}`;
+    static updateTag(id: string | number) {
+        return `${this.baseUrl}/api/tag/${id}`;
     }
 
-    static deleteTag(id: string) {
-        return `${this.baseUrl}/tags/delete/${id}`;
+    static deleteTag(id: string | number) {
+        return `${this.baseUrl}/api/tag/${id}`;
     }
 }

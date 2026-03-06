@@ -4,6 +4,10 @@ import { NotFoundView } from '../../views/notFoundView/NotFoundView';
 import { ProtectedRoutes } from '../ProtectedRoutes';
 import { Roles } from '../roles';
 import { DefaultAdminView } from '../../admin/pages/DefaultAdminView';
+import { TagCategoryListView } from '../../admin/pages/tagCategory/TagCategoryListView';
+import { TagCategoryFormView } from '../../admin/pages/tagCategory/TagCategoryFormView';
+import { TagListView } from '../../admin/pages/tag/TagListView';
+import { TagFormView } from '../../admin/pages/tag/TagFormView';
 
 export function AdminRouter() {
     return (
@@ -54,11 +58,11 @@ export function AdminRouter() {
             <Route element={<ProtectedRoutes allowedRoles={[Roles.ADMIN]} />}>
                 <Route
                     path={Paths.ADMIN_TAG_LIST}
-                    element={<DefaultAdminView />}
+                    element={<TagListView />}
                 />
                 <Route
                     path={Paths.ADMIN_TAG_EDIT}
-                    element={<DefaultAdminView />}
+                    element={<TagFormView />}
                 />
                 <Route
                     path={Paths.ADMIN_TAG_DETAIL}
@@ -66,16 +70,16 @@ export function AdminRouter() {
                 />
                 <Route
                     path={Paths.ADMIN_TAG_CREATE}
-                    element={<DefaultAdminView />}
+                    element={<TagFormView />}
                 />
 
                 <Route
                     path={Paths.ADMIN_TAG_CATEGORY_LIST}
-                    element={<DefaultAdminView />}
+                    element={<TagCategoryListView />}
                 />
                 <Route
                     path={Paths.ADMIN_TAG_CATEGORY_EDIT}
-                    element={<DefaultAdminView />}
+                    element={<TagCategoryFormView />}
                 />
                 <Route
                     path={Paths.ADMIN_TAG_CATEGORY_DETAIL}
@@ -83,7 +87,7 @@ export function AdminRouter() {
                 />
                 <Route
                     path={Paths.ADMIN_TAG_CATEGORY_CREATE}
-                    element={<DefaultAdminView />}
+                    element={<TagCategoryFormView />}
                 />
             </Route>
 

@@ -17,13 +17,9 @@ export function SongListItem({ song }: SongListItemProps) {
         <div className={bem(base, { 'song-list_item--expanded': expanded })}>
             <div className={bem('summary')}>
                 <div className={bem('title')}>
-                    <Link to={'/song/1/sheets'}>{song.title}</Link>
+                    <Link to={`/song/${song.id}/sheets`}>{song.title}</Link>
                 </div>
-                <div className={bem('author')}>{song.author}</div>
-                <div className={bem('hymnal')}>
-                    {song.hymnalNumber}{' '}
-                    {song.hymnalNumber && song.hymnal ? '-' : ''} {song.hymnal}
-                </div>
+                <div className={bem('author')}>{song.authorName}</div>
                 <div
                     onClick={() => setExpanded((prev) => !prev)}
                     className={bem('expand-button')}
@@ -53,11 +49,20 @@ export function SongListItem({ song }: SongListItemProps) {
                     )}
                 </div>
             </div>
-            <div className={bem('details')}>
-                {song.tags?.map((tag: string) => (
-                    <Tag key={tag} name={tag} color={''} />
-                ))}
-            </div>
+            {expanded && (
+                <div className={bem('details')}>
+                    {song.description && (
+                        <p>{song.description}</p>
+                    )}
+                    {song.tags?.map((tag) => (
+                        <Tag
+                            key={tag.id}
+                            name={tag.name}
+                            color={tag.categoryColor}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

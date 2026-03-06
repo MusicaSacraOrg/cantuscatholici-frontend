@@ -1,37 +1,38 @@
-import { Link, Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router';
 import { Paths } from '../paths';
 import { NotFoundView } from '../../views/notFoundView/NotFoundView';
+import { SheetsTab } from '../../views/songView/tabs/SheetsTab';
+import { HymnologyTab } from '../../views/songView/tabs/HymnologyTab';
+import { EventsTab } from '../../views/songView/tabs/EventsTab';
+import { RelatedTab } from '../../views/songView/tabs/RelatedTab';
+import { ArrangementsTab } from '../../views/songView/tabs/ArrangementsTab';
 
 export function SongRouter() {
     return (
         <Routes>
             <Route
                 path={Paths.SONG_DETAIL_SHEETS}
-                element={<div>Sheets</div>}
+                element={<SheetsTab />}
             />
             <Route
                 path={Paths.SONG_DETAIL_HYMNOLOGY}
-                element={<div>hymnlogy</div>}
+                element={<HymnologyTab />}
             />
             <Route
                 path={Paths.SONG_DETAIL_EVENTS}
-                element={<div>events</div>}
+                element={<EventsTab />}
             />
             <Route
                 path={Paths.SONG_DETAIL_RELATED}
-                element={<div>related</div>}
+                element={<RelatedTab />}
             />
             <Route
                 path={Paths.SONG_DETAIL_ARRANGEMENTS}
-                element={
-                    <div>
-                        <Link to={'/song/1/arrangements/1'}>arangement</Link>
-                    </div>
-                }
+                element={<ArrangementsTab />}
             />
             <Route
                 path={Paths.SONG_DETAIL_ARRANGEMENTS_DETAIL}
-                element={<div>Arangement detail</div>}
+                element={<div>Detail úpravy - čoskoro</div>}
             />
 
             <Route path={'*'} element={<NotFoundView />} />

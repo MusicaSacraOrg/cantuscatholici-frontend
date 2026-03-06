@@ -1,8 +1,38 @@
+export type SongTag = {
+    id: number;
+    name: string;
+    categoryColor: string;
+};
+
 export type Song = {
-    id: string;
+    id: number;
     title: string;
-    author?: string;
-    hymnalNumber?: string;
-    hymnal?: string;
-    tags?: string[];
+    authorName?: string;
+    tags: SongTag[];
+    description?: string;
+};
+
+export type SongDetailTag = {
+    id: number;
+    name: string;
+    categoryId: number;
+    categoryName: string;
+    categoryColor: string;
+};
+
+export type RelatedSong = {
+    id: number;
+    title: string;
+};
+
+export type SongDetail = {
+    id: number;
+    title: string;
+    authorName?: string;
+    authorId?: number;
+    description?: string;
+    tags: SongDetailTag[];
+    relatedSong?: RelatedSong;
+    addedAt?: string;
+    lastEditAt?: string;
 };

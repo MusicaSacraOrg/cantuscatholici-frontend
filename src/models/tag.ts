@@ -1,13 +1,12 @@
 export type Tag = {
     id: number;
     name: string;
-    category: string;
+    categoryId: number;
 };
 
 export type TagCategory = {
-    name: string;
-    tags: Tag[];
-    id: string;
+    id: number;
     name: string;
     color: string;
+    tags: Tag[];
 };

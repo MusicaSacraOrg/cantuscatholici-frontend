@@ -2,23 +2,26 @@ import { Endpoints } from '../Endpoints';
 
 export class TagCategoryEndpoints extends Endpoints {
     static getTagCategories() {
-        //return `${this.baseUrl}/tag_category`;
-        return '/mocks/tagCategories.json';
+        return `${this.baseUrl}/api/tag_category/`;
     }
 
-    static getTagCategory(id: string) {
-        return `${this.baseUrl}/tag_category/${id}`;
+    static getTagCategoriesWithTags() {
+        return `${this.baseUrl}/api/tag_category/with-tags`;
+    }
+
+    static getTagCategory(id: string | number) {
+        return `${this.baseUrl}/api/tag_category/${id}`;
     }
 
     static createTagCategory() {
-        return `${this.baseUrl}/tag_category/create`;
+        return `${this.baseUrl}/api/tag_category/`;
     }
 
-    static updateTagCategory(id: string) {
-        return `${this.baseUrl}/tag_category/update/${id}`;
+    static updateTagCategory(id: string | number) {
+        return `${this.baseUrl}/api/tag_category/${id}`;
     }
 
-    static deleteTagCategory(id: string) {
-        return `${this.baseUrl}/tag_category/delete/${id}`;
+    static deleteTagCategory(id: string | number) {
+        return `${this.baseUrl}/api/tag_category/${id}`;
     }
 }

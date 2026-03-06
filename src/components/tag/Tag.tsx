@@ -1,18 +1,21 @@
 import { useBem } from '@musica-sacra/hooks';
-import { useState } from 'react';
 
 type TagProps = {
     name: string;
     color: string;
+    active?: boolean;
+    onClick?: () => void;
 };
 
-export function Tag({ name, color }: TagProps) {
+export function Tag({ name, color, active = false, onClick }: TagProps) {
     const { bem, base } = useBem('tag');
 
-    const [active] = useState<boolean>(false);
-
     return (
-        <div className={bem(base, `tag--${color}`, { 'tag--active': active })}>
+        <div
+            className={bem(base, `tag--${color}`, { 'tag--active': active })}
+            onClick={onClick}
+            style={{ cursor: onClick ? 'pointer' : undefined }}
+        >
             {name}
         </div>
     );
