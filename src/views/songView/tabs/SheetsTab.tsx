@@ -1,19 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { SongContext } from '../SongView';
 import { SongEndpoints } from '../../../api/song/SongEndpoints';
+import { StaticContentEndpoints } from '../../../api/staticContent/StaticContentEndpoints';
 import { SongLyrics } from '../../../models/song';
 import { useBem } from '@musica-sacra/hooks';
 import { Loader } from '@musica-sacra/loader';
-
-const PART_TYPE_LABELS: Record<string, string> = {
-    verse: 'Sloha',
-    refrain: 'Refren',
-    bridge: 'Bridge',
-    coda: 'Koda',
-    intro: 'Intro',
-};
 
 function getPartLabel(partType: string, verseNumber: number): string {
     if (partType === 'verse') {
@@ -22,12 +15,13 @@ function getPartLabel(partType: string, verseNumber: number): string {
     if (partType === 'refrain') {
         return 'R:';
     }
-    return PART_TYPE_LABELS[partType] || partType;
+    return partType;
 }
 
 export function SheetsTab() {
     const song = useContext(SongContext);
     const { bem } = useBem('sheets-tab');
+    const [svgExpanded, setSvgExpanded] = useState(false);
 
     const { data: lyrics, isLoading } = useQuery({
         queryKey: ['songLyrics', song?.id],
@@ -40,7 +34,22 @@ export function SheetsTab() {
         enabled: !!song?.id,
     });
 
+    const svgFileId = song?.msczContent?.svgUrl?.split('/').pop();
+    const { data: svgContent } = useQuery({
+        queryKey: ['svgContent', svgFileId],
+        queryFn: async () => {
+            const response = await axios.get(
+                StaticContentEndpoints.getFile(svgFileId!),
+                { responseType: 'text' }
+            );
+            return response.data as string;
+        },
+        enabled: !!svgFileId,
+    });
+
     if (!song) return null;
+
+    const msczContent = song.msczContent;
 
     return (
         <div className={bem()}>
@@ -48,6 +57,52 @@ export function SheetsTab() {
             {song.authorName && (
                 <p className={bem('author')}>{song.authorName}</p>
             )}
+
+            {msczContent && (
+                <div className={bem('downloads')}>
+                    {msczContent.pdfUrl && (
+                        <a
+                            href={StaticContentEndpoints.getFile(
+                                msczContent.pdfUrl.split('/').pop()!
+                            )}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={bem('download-btn')}
+                        >
+                            PDF
+                        </a>
+                    )}
+                    {msczContent.svgUrl && (
+                        <a
+                            href={StaticContentEndpoints.getFile(
+                                msczContent.svgUrl.split('/').pop()!
+                            )}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={bem('download-btn')}
+                        >
+                            SVG
+                        </a>
+                    )}
+                </div>
+            )}
+
+            {svgContent && (
+                <div className={bem('svg-container', { expanded: svgExpanded })}>
+                    <button
+                        type="button"
+                        className={bem('svg-toggle')}
+                        onClick={() => setSvgExpanded(!svgExpanded)}
+                    >
+                        {svgExpanded ? 'Zmensiť noty' : 'Zväčšiť noty'}
+                    </button>
+                    <div
+                        className={bem('svg-viewer')}
+                        dangerouslySetInnerHTML={{ __html: svgContent }}
+                    />
+                </div>
+            )}
+
             <Loader loading={isLoading}>
                 {lyrics && lyrics.parts.length > 0 ? (
                     <div className={bem('lyrics')}>
@@ -72,9 +127,11 @@ export function SheetsTab() {
                         })}
                     </div>
                 ) : (
-                    <div className={bem('placeholder')}>
-                        <p>Text piesne zatial nie je dostupny.</p>
-                    </div>
+                    !svgContent && (
+                        <div className={bem('placeholder')}>
+                            <p>Text piesne zatial nie je dostupny.</p>
+                        </div>
+                    )
                 )}
             </Loader>
         </div>

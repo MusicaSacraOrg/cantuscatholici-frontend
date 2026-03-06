@@ -67,4 +67,68 @@
         font-style: italic;
         margin-top: 24px;
     }
+
+    &__downloads {
+        display: flex;
+        gap: 8px;
+        margin: 16px 0;
+    }
+
+    &__download-btn {
+        display: inline-block;
+        padding: 6px 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+        color: inherit;
+
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+
+    &__svg-container {
+        margin: 16px 0;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        overflow: hidden;
+
+        &--expanded {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 100;
+            background: white;
+            overflow: auto;
+            margin: 0;
+            border: none;
+        }
+    }
+
+    &__svg-toggle {
+        display: block;
+        width: 100%;
+        padding: 8px;
+        background: #f5f5f5;
+        border: none;
+        cursor: pointer;
+        font-size: 0.85em;
+
+        &:hover {
+            background: #e8e8e8;
+        }
+    }
+
+    &__svg-viewer {
+        padding: 16px;
+        overflow-x: auto;
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+    }
 }

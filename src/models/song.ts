@@ -25,6 +25,14 @@ export type RelatedSong = {
     title: string;
 };
 
+export type MsczContent = {
+    id: number;
+    svgUrl?: string;
+    pdfUrl?: string;
+    msczUrl?: string;
+    mp3Url?: string;
+};
+
 export type SongDetail = {
     id: number;
     title: string;
@@ -36,6 +44,7 @@ export type SongDetail = {
     addedAt?: string;
     lastEditAt?: string;
     hasLyrics?: boolean;
+    msczContent?: MsczContent;
 };
 
 export type LyricsPart = {
