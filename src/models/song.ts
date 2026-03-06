@@ -35,4 +35,15 @@ export type SongDetail = {
     relatedSong?: RelatedSong;
     addedAt?: string;
     lastEditAt?: string;
+    hasLyrics?: boolean;
+};
+
+export type LyricsPart = {
+    partType: string;
+    lyrics: string;
+};
+
+export type SongLyrics = {
+    songId: number;
+    parts: LyricsPart[];
 };

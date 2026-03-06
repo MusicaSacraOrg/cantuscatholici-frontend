@@ -20,4 +20,12 @@ export class SongEndpoints extends Endpoints {
     static deleteSong(id: string | number) {
         return `${this.baseUrl}/api/song/${id}`;
     }
+
+    static getSongLyrics(id: string | number) {
+        return `${this.baseUrl}/api/song/${id}/lyrics`;
+    }
+
+    static updateSongLyrics(id: string | number) {
+        return `${this.baseUrl}/api/song/${id}/lyrics`;
+    }
 }

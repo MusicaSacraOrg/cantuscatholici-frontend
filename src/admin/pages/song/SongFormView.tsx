@@ -10,7 +10,7 @@ import {
 import { Loader } from '@musica-sacra/loader';
 import { useNavigate, useParams } from 'react-router';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { useContext, useEffect, useState, FormEvent } from 'react';
+import { useContext, useEffect, useState, FormEvent, useCallback } from 'react';
 import {
     NotificationsContext,
     NotificationTypes,
@@ -19,6 +19,7 @@ import axios from 'axios';
 import { SongEndpoints } from '../../../api/song/SongEndpoints';
 import { PersonEndpoints } from '../../../api/person/PersonEndpoints';
 import { TagEndpoints } from '../../../api/tag/TagEndpoints';
+import { SongLyrics, LyricsPart } from '../../../models/song';
 
 type SongDetailResponse = {
     id: number;
@@ -59,6 +60,7 @@ export function SongFormView() {
     const [authorId, setAuthorId] = useState<number | ''>('');
     const [description, setDescription] = useState('');
     const [selectedTagIds, setSelectedTagIds] = useState<number[]>([]);
+    const [lyricsParts, setLyricsParts] = useState<LyricsPart[]>([]);
 
     const { data: songData, isLoading: songLoading } = useQuery({
         queryKey: ['adminSong', id],
@@ -97,6 +99,23 @@ export function SongFormView() {
         },
     });
 
+    const { data: lyricsData } = useQuery({
+        queryKey: ['adminSongLyrics', id],
+        queryFn: async () => {
+            const response = await axios.get<SongLyrics>(
+                SongEndpoints.getSongLyrics(id!)
+            );
+            return response.data;
+        },
+        enabled: isEdit,
+    });
+
+    useEffect(() => {
+        if (lyricsData) {
+            setLyricsParts(lyricsData.parts);
+        }
+    }, [lyricsData]);
+
     useEffect(() => {
         if (songData) {
             setTitle(songData.title);
@@ -105,6 +124,41 @@ export function SongFormView() {
             setSelectedTagIds(songData.tags.map((t) => t.id));
         }
     }, [songData]);
+
+    const handleAddPart = useCallback((partType: string) => {
+        setLyricsParts((prev) => [...prev, { partType, lyrics: '' }]);
+    }, []);
+
+    const handleRemovePart = useCallback((index: number) => {
+        setLyricsParts((prev) => prev.filter((_, i) => i !== index));
+    }, []);
+
+    const handlePartChange = useCallback(
+        (index: number, field: keyof LyricsPart, value: string) => {
+            setLyricsParts((prev) =>
+                prev.map((part, i) =>
+                    i === index ? { ...part, [field]: value } : part
+                )
+            );
+        },
+        []
+    );
+
+    const handleMovePart = useCallback(
+        (index: number, direction: -1 | 1) => {
+            setLyricsParts((prev) => {
+                const newParts = [...prev];
+                const targetIndex = index + direction;
+                if (targetIndex < 0 || targetIndex >= newParts.length) return prev;
+                [newParts[index], newParts[targetIndex]] = [
+                    newParts[targetIndex],
+                    newParts[index],
+                ];
+                return newParts;
+            });
+        },
+        []
+    );
 
     const saveMutation = useMutation({
         mutationFn: async () => {
@@ -117,14 +171,30 @@ export function SongFormView() {
                 tagIds: selectedTagIds,
             };
 
+            let songId: string | number;
             if (isEdit) {
                 await axios.put(SongEndpoints.updateSong(id!), body, {
                     headers,
                 });
+                songId = id!;
             } else {
-                await axios.post(SongEndpoints.createSong(), body, {
+                const resp = await axios.post(SongEndpoints.createSong(), body, {
                     headers,
                 });
+                songId = resp.data.id;
+            }
+
+            if (lyricsParts.length > 0) {
+                await axios.put(
+                    SongEndpoints.updateSongLyrics(songId),
+                    {
+                        parts: lyricsParts.map((p) => ({
+                            part_type: p.partType,
+                            lyrics: p.lyrics,
+                        })),
+                    },
+                    { headers }
+                );
             }
         },
         onSuccess: () => {
@@ -235,13 +305,95 @@ export function SongFormView() {
                                 ))}
                             </div>
                         </InputGroup>
+                        <InputGroup>
+                            <Label>Text piesne</Label>
+                            <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
+                                <button
+                                    type="button"
+                                    onClick={() => handleAddPart('verse')}
+                                    style={{ padding: '4px 12px', cursor: 'pointer' }}
+                                >
+                                    + Sloha
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => handleAddPart('refrain')}
+                                    style={{ padding: '4px 12px', cursor: 'pointer' }}
+                                >
+                                    + Refren
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => handleAddPart('bridge')}
+                                    style={{ padding: '4px 12px', cursor: 'pointer' }}
+                                >
+                                    + Bridge
+                                </button>
+                            </div>
+                            {lyricsParts.map((part, index) => (
+                                <div
+                                    key={index}
+                                    style={{
+                                        border: '1px solid #ddd',
+                                        padding: '12px',
+                                        marginBottom: '8px',
+                                        borderRadius: '4px',
+                                    }}
+                                >
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                                        <select
+                                            value={part.partType}
+                                            onChange={(e) => handlePartChange(index, 'partType', e.target.value)}
+                                        >
+                                            <option value="verse">Sloha</option>
+                                            <option value="refrain">Refren</option>
+                                            <option value="bridge">Bridge</option>
+                                            <option value="coda">Koda</option>
+                                            <option value="intro">Intro</option>
+                                        </select>
+                                        <div style={{ display: 'flex', gap: '4px' }}>
+                                            <button
+                                                type="button"
+                                                onClick={() => handleMovePart(index, -1)}
+                                                disabled={index === 0}
+                                                style={{ cursor: 'pointer' }}
+                                            >
+                                                ^
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => handleMovePart(index, 1)}
+                                                disabled={index === lyricsParts.length - 1}
+                                                style={{ cursor: 'pointer' }}
+                                            >
+                                                v
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => handleRemovePart(index)}
+                                                style={{ color: 'red', cursor: 'pointer' }}
+                                            >
+                                                X
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <textarea
+                                        value={part.lyrics}
+                                        onChange={(e) => handlePartChange(index, 'lyrics', e.target.value)}
+                                        rows={4}
+                                        style={{ width: '100%', resize: 'vertical' }}
+                                        placeholder="Text..."
+                                    />
+                                </div>
+                            ))}
+                        </InputGroup>
                     </FormGroup>
                     <Button
                         accent
                         type="submit"
                         disabled={saveMutation.isPending}
                     >
-                        {isEdit ? 'Uložiť' : 'Vytvoriť'}
+                        {isEdit ? 'Uloziť' : 'Vytvoriť'}
                     </Button>
                 </FormContent>
             </form>

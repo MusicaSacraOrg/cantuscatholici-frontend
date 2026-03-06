@@ -23,3 +23,48 @@
         color: $accent;
     }
 }
+
+.sheets-tab {
+    &__author {
+        color: #666;
+        margin-bottom: 24px;
+    }
+
+    &__lyrics {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 16px;
+    }
+
+    &__part {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+
+        &--refrain {
+            font-weight: 600;
+        }
+    }
+
+    &__part-label {
+        min-width: 28px;
+        font-weight: 700;
+        color: $accent;
+        flex-shrink: 0;
+        padding-top: 2px;
+    }
+
+    &__part-text {
+        font-family: inherit;
+        white-space: pre-wrap;
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    &__placeholder {
+        color: #888;
+        font-style: italic;
+        margin-top: 24px;
+    }
+}
