@@ -1,19 +1,56 @@
 {
-  "items": [
-    {
-      "id": 0,
-      "name": "1. nedela v roku A",
-      "description": "Lorem ipsum",
-      "date": {
-        "day": 1,
-        "month": 12
-      }
-    },
-    {
-      "id": 1,
-      "name": "2. nedela v roku A",
-      "description": "Lorem ipsum",
-      "date": null
-    }
-  ]
+  "0": {
+    "items": [
+      {"id": 0, "name": "1. nedela v roku A", "description": "Lorem ipsum", "date": {"day": 1, "month": 12}},
+      {"id": 1, "name": "2. nedela v roku A", "description": "Lorem ipsum", "date": null}
+    ]
+  },
+  "1": {
+    "items": [
+      {"id": 2, "name": "Slávnosť Narodenia Pána", "description": "Lorem ipsum", "date": {"day": 25, "month": 12}},
+      {"id": 3, "name": "Sviatok Svätej Rodiny", "description": "Lorem ipsum", "date": {"day": 29, "month": 12}}
+    ]
+  },
+  "2": {
+    "items": [
+      {"id": 4, "name": "1. nedela pôstna", "description": "Lorem ipsum", "date": {"day": 22, "month": 2}},
+      {"id": 5, "name": "Kvetná nedeľa", "description": "Lorem ipsum", "date": {"day": 2, "month": 4}}
+    ]
+  },
+  "3": {
+    "items": [
+      {"id": 6, "name": "Veľkonočná vigília", "description": "Lorem ipsum", "date": {"day": 4, "month": 4}},
+      {"id": 7, "name": "Slávnosť Zmŕtvychvstania Pána", "description": "Lorem ipsum", "date": {"day": 5, "month": 4}}
+    ]
+  },
+  "4": {
+    "items": [
+      {"id": 8, "name": "2. nedela cez rok", "description": "Lorem ipsum", "date": {"day": 14, "month": 1}},
+      {"id": 9, "name": "3. nedela cez rok", "description": "Lorem ipsum - viac informacii", "date": {"day": 21, "month": 1}}
+    ]
+  },
+  "5": {
+    "items": [
+      {"id": 10, "name": "Slávnosť Najsvätejšej Trojice", "description": "Lorem ipsum", "date": {"day": 30, "month": 5}},
+      {"id": 11, "name": "Telo a krv Pána", "description": "Lorem ipsum", "date": {"day": 11, "month": 6}}
+    ]
+  },
+  "6": {
+    "items": [
+      {"id": 12, "name": "Sviatok sv. Štefana", "description": "Lorem ipsum", "date": {"day": 26, "month": 12}},
+      {"id": 13, "name": "Sviatok sv. Jána Evanjelistu", "description": "Lorem ipsum", "date": {"day": 27, "month": 12}}
+    ]
+  },
+  "7": {
+    "items": [
+      {"id": 14, "name": "Spoločná omša", "description": "Lorem ipsum", "date": null},
+      {"id": 15, "name": "Omša za rôzne potreby", "description": "Lorem ipsum - viac informacii", "date": null}
+    ]
+  },
+  "8": {
+    "items": [
+      {"id": 16, "name": "Svätba", "description": "Lorem ipsum", "date": null},
+      {"id": 17, "name": "Pohreb", "description": "Lorem ipsum", "date": null}
+    ]
+  }
 }

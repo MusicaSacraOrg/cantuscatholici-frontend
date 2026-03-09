@@ -6,7 +6,8 @@ export const Paths = Object.freeze({
 
     ABOUT: '/about-the-project',
 
-    CALENDAR: '/calendar/*',
+    CALENDAR: '/calendar',
+    CALENDAR_EVENT_DETAIL: ':id',
 
     SONG_DETAIL: '/song/:id/*',
 

@@ -10,13 +10,18 @@ import { AboutView } from '../../views/aboutView/AboutView';
 import { RegisterView } from '../../views/registerView/RegisterView';
 import { SongView } from '../../views/songView/SongView';
 import { CalendarView } from '../../views/calendarView/CalendarView';
+import { EventsList } from '../../views/calendarView/EventsList';
+import { EventDetail } from '../../views/calendarView/EventDetail';
 import { UserDetailView } from '../../views/userDetailView/UserDetailView';
 
 export function MainRouter() {
     return (
         <Routes>
             <Route path={Paths.HOMEPAGE} element={<HomepageView />} />
-            <Route path={Paths.CALENDAR} element={<CalendarView />} />
+            <Route path={Paths.CALENDAR} element={<CalendarView />}>
+                <Route index element={<EventsList />} />
+                <Route path={Paths.CALENDAR_EVENT_DETAIL} element={<EventDetail />} />
+            </Route>
             <Route path={Paths.ABOUT} element={<AboutView />} />
             <Route path={Paths.LOGIN} element={<LoginView />} />
             <Route path={Paths.REGISTER} element={<RegisterView />} />

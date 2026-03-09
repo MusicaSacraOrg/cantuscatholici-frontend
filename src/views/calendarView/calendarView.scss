@@ -1,0 +1,398 @@
+@use '../../styles/variables' as *;
+
+.view-calendar {
+    &__sidebar {
+        min-width: 100%;
+        width: 100%;
+    }
+}
+
+// Calendar sidebar: Kalendar title, Slavenia with separator, linear list of category links
+.view-calendar-sidebar {
+    padding: 1rem 0;
+
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $primary;
+        margin: 0 0 4rem 0;
+        text-align: left;
+    }
+
+    &__subtitle {
+        font-size: 1rem;
+        color: $secondary;
+        margin: 0 0 0.75rem 0;
+        padding-bottom: 0.75rem;
+        text-align: left;
+        border-bottom: $border-light;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-top: 0.75rem;
+    }
+
+    &__link {
+        color: $secondary;
+        text-decoration: none;
+
+        &:hover {
+            color: $accent;
+        }
+
+        &--active {
+            color: $accent;
+        }
+    }
+}
+
+// Events list: title, numbered list, item with name/description/date and arrow
+.view-calendar-events {
+    &__title {
+        font-size: 1.5rem;
+        margin: 0 0 1rem 0;
+        color: $primary;
+    }
+
+    &__hint {
+        color: $tertiary;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        border-bottom: $border;
+    }
+
+    &__item-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+    }
+
+    &__item-number {
+        flex-shrink: 0;
+        color: $tertiary;
+    }
+
+    &__item-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        flex: 1;
+    }
+
+    &__item-title {
+        font-weight: 500;
+        color: $primary;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        text-align: left;
+        font-size: inherit;
+        font-family: inherit;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+
+    &__item-description {
+        font-size: 0.875rem;
+        color: $tertiary;
+    }
+
+    &__item-date {
+        flex-shrink: 0;
+        color: $tertiary;
+    }
+
+    &__item-chevron {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        padding: 0.25rem;
+        cursor: pointer;
+        color: $accent;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__item-chevron-icon {
+        display: block;
+    }
+
+    &__item-detail {
+        padding: 1rem 0 1rem 2rem;
+        margin-bottom: 0.5rem;
+        background-color: $background-secondary;
+        border-radius: $border-radius-small;
+    }
+
+    &__item-detail-songs {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__item-detail-song-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item-detail-empty {
+        color: $tertiary;
+        margin: 0;
+        padding: 0.5rem 0;
+    }
+
+    // Song item: row (title | author | hymnal | chevron) + tags rollout below when expanded
+    &__item-detail-song {
+        padding: 0.35rem 0;
+        font-size: 0.875rem;
+    }
+
+    &__item-detail-song-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__item-detail-song-title {
+        flex: 6;
+        min-width: 0;
+        color: $primary;
+        text-decoration: none;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        text-align: left;
+        font-size: inherit;
+        font-family: inherit;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+
+    &__item-detail-song-author {
+        flex: 3;
+        color: $tertiary;
+    }
+
+    &__item-detail-song-meta {
+        flex: 2;
+        padding-right: 0.75rem;
+        color: $tertiary;
+    }
+
+    &__item-detail-song-chevron {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        padding: 0.25rem;
+        cursor: pointer;
+        color: $accent;
+        margin-left: auto;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__item-detail-song-chevron-icon {
+        display: block;
+    }
+
+    &__item-detail-song-tags-rollout {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+        padding: 0.5rem 0 0 0;
+        margin-left: 0;
+        color: $tertiary;
+        font-size: 0.8125rem;
+    }
+
+    &__item-detail-song-tag {
+        display: block;
+    }
+
+    &__item-detail-song-unavailable-rollout {
+        padding: 0.5rem 0 0 0;
+        color: $tertiary;
+        font-size: 0.875rem;
+    }
+
+    &__item-detail-song-unavailable-text {
+        margin: 0;
+    }
+
+    &__item-detail-error {
+        color: $tertiary;
+        margin: 0;
+    }
+}
+
+// Event detail page wrapper (EventDetail). Add page-level styles here.
+.view-calendar-event-detail {
+    // Child: EventInfo (general info + songs)
+}
+
+// Event info block (meta left, songs right). Used inside EventDetail.
+.view-calendar-event-info {
+    &__title {
+        font-size: 1.5rem;
+        margin: 0 0 1rem 0;
+        color: $primary;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__meta {
+        &-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: $primary;
+            margin: 0 0 0.5rem 0;
+        }
+
+        &-date {
+            color: $tertiary;
+            margin: 0;
+        }
+    }
+
+    &__songs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__songs-empty {
+        color: $tertiary;
+        margin: 0;
+        padding: 0.5rem 0;
+    }
+
+    &__song-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    // Song item: row (title | author | hymnal | chevron) + tags rollout below when expanded
+    &__song-item {
+        padding: 0.5rem 0;
+        border-bottom: $border-light;
+        font-size: 0.875rem;
+    }
+
+    &__song-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__song-title {
+        flex: 6;
+        min-width: 0;
+        color: $primary;
+        text-decoration: none;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        text-align: left;
+        font-size: inherit;
+        font-family: inherit;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+
+    &__song-author {
+        flex: 3;
+        color: $tertiary;
+    }
+
+    &__song-meta {
+        flex: 2;
+        padding-right: 0.75rem;
+        color: $tertiary;
+    }
+
+    &__song-chevron {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        padding: 0.25rem;
+        cursor: pointer;
+        color: $accent;
+        margin-left: auto;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__song-chevron-icon {
+        display: block;
+    }
+
+    &__song-tags-rollout {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+        padding: 0.5rem 0 0 0;
+        margin-left: 0;
+        color: $tertiary;
+        font-size: 0.8125rem;
+    }
+
+    &__song-tag {
+        display: block;
+    }
+
+    &__song-unavailable-rollout {
+        padding: 0.5rem 0 0 0;
+        color: $tertiary;
+        font-size: 0.875rem;
+    }
+
+    &__song-unavailable-text {
+        margin: 0;
+    }
+}

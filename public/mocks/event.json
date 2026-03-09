@@ -1,29 +1,183 @@
 {
-  "event": {
+  "0": {
     "id": 0,
     "name": "1. nedela v roku A",
     "description": "Lorem ipsum",
-    "date": {
-      "day": 1,
-      "month": 12
-    },
+    "date": {"day": 1, "month": 12},
     "songs": [
-      {
-        "id": "1",
-        "title": "Nazov piesne 1",
-        "songPart": 5,
-        "songPartName": "piata sloha",
-        "prescribed": true,
-        "eventPart": "Introit"
-      },
-      {
-        "id": "2",
-        "title": "Nazov piesne 2",
-        "songPart": null,
-        "songPartName": null,
-        "prescribed": false,
-        "eventPart": "Zaver"
-      }
+      {"id": "1", "songPart": 5, "songPartName": "piata sloha", "prescribed": true, "eventPart": "Introit"},
+      {"id": "2", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zaver"}
+    ]
+  },
+  "1": {
+    "id": 1,
+    "name": "2. nedela v roku A",
+    "description": "Lorem ipsum - viac informacii",
+    "date": null,
+    "songs": [
+      {"id": "3", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Introit"},
+      {"id": "4", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Zalm"}
+    ]
+  },
+  "2": {
+    "id": 2,
+    "name": "Slávnosť Narodenia Pána",
+    "description": "Slávnosť narodenia Ježiša Krista. Tradičné hymny a žalmy.",
+    "date": {"day": 25, "month": 12},
+    "songs": [
+      {"id": "10", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "11", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zalm"},
+      {"id": "12", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zaver"}
+    ]
+  },
+  "3": {
+    "id": 3,
+    "name": "Sviatok Svätej Rodiny",
+    "description": "Sviatok Pána Ježiša, Panny Márie a sv. Jozefa.",
+    "date": {"day": 29, "month": 12},
+    "songs": [
+      {"id": "13", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "14", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zalm"}
+    ]
+  },
+  "4": {
+    "id": 4,
+    "name": "1. nedela pôstna",
+    "description": "Začiatok pôstneho obdobia. Priprava na Veľkú noc.",
+    "date": {"day": 22, "month": 2},
+    "songs": [
+      {"id": "15", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "16", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zaver"}
+    ]
+  },
+  "5": {
+    "id": 5,
+    "name": "Kvetná nedeľa",
+    "description": "Vjazd Pána do Jeruzalema. Pašiové čítania.",
+    "date": {"day": 2, "month": 4},
+    "songs": [
+      {"id": "17", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "18", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Zalm"}
+    ]
+  },
+  "6": {
+    "id": 6,
+    "name": "Veľkonočná vigília",
+    "description": "Slávnosť zmŕtvychvstania. Vigília so sviečkou a liturgiou krstu.",
+    "date": {"day": 4, "month": 4},
+    "songs": [
+      {"id": "19", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "20", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Zalm"}
+    ]
+  },
+  "7": {
+    "id": 7,
+    "name": "Slávnosť Zmŕtvychvstania Pána",
+    "description": "Veľkonočná nedeľa. Kristus vstal z mŕtvych.",
+    "date": {"day": 5, "month": 4},
+    "songs": [
+      {"id": "21", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "22", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zaver"}
+    ]
+  },
+  "8": {
+    "id": 8,
+    "name": "2. nedela cez rok",
+    "description": "Cezročné obdobie. Liturgia slova a eucharistie.",
+    "date": {"day": 14, "month": 1},
+    "songs": [
+      {"id": "23", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "24", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zalm"}
+    ]
+  },
+  "9": {
+    "id": 9,
+    "name": "3. nedela cez rok",
+    "description": "Lorem ipsum - viac informacii. Cezročné slavenie.",
+    "date": {"day": 21, "month": 1},
+    "songs": [
+      {"id": "25", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "26", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zaver"}
+    ]
+  },
+  "10": {
+    "id": 10,
+    "name": "Slávnosť Najsvätejšej Trojice",
+    "description": "Slávnosť Otca, Syna a Ducha Svätého. Teologické hymny.",
+    "date": {"day": 30, "month": 5},
+    "songs": [
+      {"id": "27", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "28", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zalm"}
+    ]
+  },
+  "11": {
+    "id": 11,
+    "name": "Telo a krv Pána",
+    "description": "Slávnosť Najsvätejšej eucharistie. Procesia a adorácia.",
+    "date": {"day": 11, "month": 6},
+    "songs": [
+      {"id": "29", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "30", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Zaver"}
+    ]
+  },
+  "12": {
+    "id": 12,
+    "name": "Sviatok sv. Štefana",
+    "description": "Prvý mučeník. Diakon a kazateľ.",
+    "date": {"day": 26, "month": 12},
+    "songs": [
+      {"id": "31", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "32", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zalm"}
+    ]
+  },
+  "13": {
+    "id": 13,
+    "name": "Sviatok sv. Jána Evanjelistu",
+    "description": "Apoštol a evanjelista. Autor Apokalypsy.",
+    "date": {"day": 27, "month": 12},
+    "songs": [
+      {"id": "33", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "34", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zaver"}
+    ]
+  },
+  "14": {
+    "id": 14,
+    "name": "Spoločná omša",
+    "description": "Omša za rôzne príležitosti. Spoločné čítania a modlitby.",
+    "date": null,
+    "songs": [
+      {"id": "35", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "36", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zalm"}
+    ]
+  },
+  "15": {
+    "id": 15,
+    "name": "Omša za rôzne potreby",
+    "description": "Lorem ipsum - viac informacii. Za úmysly, vďaky, pokánie.",
+    "date": null,
+    "songs": [
+      {"id": "37", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Introit"},
+      {"id": "38", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zaver"}
+    ]
+  },
+  "16": {
+    "id": 16,
+    "name": "Svätba",
+    "description": "Svätobná omša. Manželský sľub a požehnanie.",
+    "date": null,
+    "songs": [
+      {"id": "39", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Introit"},
+      {"id": "40", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zalm"}
+    ]
+  },
+  "17": {
+    "id": 17,
+    "name": "Pohreb",
+    "description": "Omša za zosnulých. Requiem a večný pokoj.",
+    "date": null,
+    "songs": [
+      {"id": "41", "songPart": null, "songPartName": null, "prescribed": true, "eventPart": "Introit"},
+      {"id": "42", "songPart": null, "songPartName": null, "prescribed": false, "eventPart": "Zaver"}
     ]
   }
 }

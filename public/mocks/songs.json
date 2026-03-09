@@ -23,9 +23,28 @@
       "tags": ["Introit", "Offertorium"]
     },
     {
-      "id": "1",
+      "id": "4",
       "title": "Ty si Pane v kazdom chrame",
       "author": "Mikulas Schneider-Trnavsky"
+    },
+    {
+      "id": "10",
+      "title": "Narodil sa Kristus Pán",
+      "author": "trad.",
+      "hymnalNumber": "1",
+      "hymnal": "JKS"
+    },
+    {
+      "id": "11",
+      "title": "Pastierska omša",
+      "author": "",
+      "hymnal": "JKS"
+    },
+    {
+      "id": "12",
+      "title": "Tichá noc",
+      "author": "F. Gruber",
+      "hymnal": "JKS"
     }
   ]
 }
