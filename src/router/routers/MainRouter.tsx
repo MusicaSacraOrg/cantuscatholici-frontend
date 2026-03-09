@@ -20,7 +20,10 @@ export function MainRouter() {
             <Route path={Paths.HOMEPAGE} element={<HomepageView />} />
             <Route path={Paths.CALENDAR} element={<CalendarView />}>
                 <Route index element={<EventsList />} />
-                <Route path={Paths.CALENDAR_EVENT_DETAIL} element={<EventDetail />} />
+                <Route
+                    path={Paths.CALENDAR_EVENT_DETAIL}
+                    element={<EventDetail />}
+                />
             </Route>
             <Route path={Paths.ABOUT} element={<AboutView />} />
             <Route path={Paths.LOGIN} element={<LoginView />} />

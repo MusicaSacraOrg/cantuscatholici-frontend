@@ -10,7 +10,9 @@ export function formatDate(
 /** Tags sorted alphabetically (lowercase). Used with TAG_LETTERS for a. b. c. labels. */
 export function getSortedTags(tags: string[] | undefined): string[] {
     if (!tags?.length) return [];
-    return [...tags].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+    return [...tags].sort((a, b) =>
+        a.toLowerCase().localeCompare(b.toLowerCase())
+    );
 }
 
 export const TAG_LETTERS = 'abcdefghijklmnopqrstuvwxyz'.split('');

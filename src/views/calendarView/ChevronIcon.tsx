@@ -5,7 +5,11 @@ type ChevronIconProps = {
 };
 
 /** V-shaped chevron (stroke, no fill). Use for expand/collapse or list indicators. */
-export function ChevronIcon({ direction, className, 'aria-hidden': ariaHidden }: ChevronIconProps) {
+export function ChevronIcon({
+    direction,
+    className,
+    'aria-hidden': ariaHidden,
+}: ChevronIconProps) {
     const isUp = direction === 'up';
     const size = 12;
     const strokeWidth = 1.5;

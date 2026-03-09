@@ -35,8 +35,7 @@ type EventDetailContentProps = {
 
 const EMPTY_SONGS_MESSAGE =
     'Pre toto slavenie nie sú aktuálne dostupné žiadne piesne.';
-const SONG_UNAVAILABLE_MESSAGE =
-    'Ľutujeme, detaily k piesni nie sú dostupné.';
+const SONG_UNAVAILABLE_MESSAGE = 'Ľutujeme, detaily k piesni nie sú dostupné.';
 
 function EventDetailContent({
     eventId,
@@ -48,9 +47,7 @@ function EventDetailContent({
     const mappedSongs = eventDetail.songs.filter(hasSongTitle);
     if (mappedSongs.length === 0) {
         return (
-            <p className={bem('item-detail-empty')}>
-                {EMPTY_SONGS_MESSAGE}
-            </p>
+            <p className={bem('item-detail-empty')}>{EMPTY_SONGS_MESSAGE}</p>
         );
     }
     return (
@@ -94,9 +91,7 @@ function EventSongRow({
     const onToggle = () => toggleSongExpanded(eventId, song.id);
 
     return (
-        <li
-            className={bem('item-detail-song', { expanded: isSongExpanded })}
-        >
+        <li className={bem('item-detail-song', { expanded: isSongExpanded })}>
             <div className={bem('item-detail-song-row')}>
                 <button
                     type="button"
@@ -153,7 +148,9 @@ export function EventsList() {
     const [searchParams] = useSearchParams();
     const categoryId = searchParams.get('category');
     const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
-    const [expandedSongKeys, setExpandedSongKeys] = useState<Set<string>>(new Set());
+    const [expandedSongKeys, setExpandedSongKeys] = useState<Set<string>>(
+        new Set()
+    );
 
     const { data, isLoading } = useQuery({
         queryKey: ['eventCategoryDetail'],
@@ -201,16 +198,26 @@ export function EventsList() {
                     <ol className={bem('list')}>
                         {items.map((event, index) => {
                             const isExpanded = expandedIds.has(event.id);
-                            const eventDetail = detailsMap[String(event.id)] ?? null;
+                            const eventDetail =
+                                detailsMap[String(event.id)] ?? null;
                             return (
-                                <li key={event.id} className={bem('item', { expanded: isExpanded })}>
+                                <li
+                                    key={event.id}
+                                    className={bem('item', {
+                                        expanded: isExpanded,
+                                    })}
+                                >
                                     <div className={bem('item-row')}>
-                                        <span className={bem('item-number')}>{index + 1}.</span>
+                                        <span className={bem('item-number')}>
+                                            {index + 1}.
+                                        </span>
                                         <div className={bem('item-body')}>
                                             <button
                                                 type="button"
                                                 className={bem('item-title')}
-                                                onClick={() => handleRowClick(event.id)}
+                                                onClick={() =>
+                                                    handleRowClick(event.id)
+                                                }
                                                 aria-expanded={isExpanded}
                                                 aria-controls={`event-detail-${event.id}`}
                                             >
@@ -218,7 +225,11 @@ export function EventsList() {
                                             </button>
                                             {event.description != null &&
                                                 event.description !== '' && (
-                                                    <span className={bem('item-description')}>
+                                                    <span
+                                                        className={bem(
+                                                            'item-description'
+                                                        )}
+                                                    >
                                                         {event.description}
                                                     </span>
                                                 )}
@@ -229,13 +240,23 @@ export function EventsList() {
                                         <button
                                             type="button"
                                             className={bem('item-chevron')}
-                                            onClick={() => handleRowClick(event.id)}
-                                            aria-label={isExpanded ? 'Zbaliť' : 'Rozbaliť'}
+                                            onClick={() =>
+                                                handleRowClick(event.id)
+                                            }
+                                            aria-label={
+                                                isExpanded
+                                                    ? 'Zbaliť'
+                                                    : 'Rozbaliť'
+                                            }
                                             aria-expanded={isExpanded}
                                         >
                                             <ChevronIcon
-                                                direction={isExpanded ? 'up' : 'down'}
-                                                className={bem('item-chevron-icon')}
+                                                direction={
+                                                    isExpanded ? 'up' : 'down'
+                                                }
+                                                className={bem(
+                                                    'item-chevron-icon'
+                                                )}
                                                 aria-hidden={true}
                                             />
                                         </button>
@@ -247,18 +268,32 @@ export function EventsList() {
                                             role="region"
                                             aria-label={`Detail: ${event.name}`}
                                         >
-                                            {isExpanded && detailLoading && !eventDetail ? (
-                                                <Loader key={`loader-${event.id}`} />
+                                            {isExpanded &&
+                                            detailLoading &&
+                                            !eventDetail ? (
+                                                <Loader
+                                                    key={`loader-${event.id}`}
+                                                />
                                             ) : eventDetail ? (
                                                 <EventDetailContent
                                                     eventId={event.id}
                                                     eventDetail={eventDetail}
-                                                    expandedSongKeys={expandedSongKeys}
-                                                    toggleSongExpanded={toggleSongExpanded}
+                                                    expandedSongKeys={
+                                                        expandedSongKeys
+                                                    }
+                                                    toggleSongExpanded={
+                                                        toggleSongExpanded
+                                                    }
                                                     bem={bem}
                                                 />
                                             ) : (
-                                                <p className={bem('item-detail-error')}>Detail sa nenašiel.</p>
+                                                <p
+                                                    className={bem(
+                                                        'item-detail-error'
+                                                    )}
+                                                >
+                                                    Detail sa nenašiel.
+                                                </p>
                                             )}
                                         </div>
                                     )}

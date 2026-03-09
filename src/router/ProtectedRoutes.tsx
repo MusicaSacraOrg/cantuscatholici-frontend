@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from 'react-router';
+import { Outlet } from 'react-router';
 import { Role } from './roles';
 import { useContext, useEffect } from 'react';
 import {
@@ -6,8 +6,6 @@ import {
     NotificationTypes,
 } from '@musica-sacra/notifications';
 import { useUser } from '../context/userContext/useUser';
-import { Container } from '@musica-sacra/layout';
-import { Loader } from '@musica-sacra/loader';
 
 type ProtectedRoutesProps = {
     allowedRoles: Role[];

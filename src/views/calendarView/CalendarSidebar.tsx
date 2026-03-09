@@ -11,7 +11,10 @@ export function CalendarSidebar() {
     const [searchParams] = useSearchParams();
     const currentCategoryId = searchParams.get('category') ?? '';
 
-    const { query } = useGetList<EventCategory>('/mocks/eventCategories.json', 'eventCategories');
+    const { query } = useGetList<EventCategory>(
+        '/mocks/eventCategories.json',
+        'eventCategories'
+    );
 
     return (
         <div className={bem()}>

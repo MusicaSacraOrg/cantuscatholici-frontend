@@ -13,8 +13,7 @@ import {
 
 const EMPTY_SONGS_MESSAGE =
     'Pre toto slavenie nie sú aktuálne dostupné žiadne piesne.';
-const SONG_UNAVAILABLE_MESSAGE =
-    'Ľutujeme, detaily k piesni nie sú dostupné.';
+const SONG_UNAVAILABLE_MESSAGE = 'Ľutujeme, detaily k piesni nie sú dostupné.';
 
 /**
  * General info for one event: name, date, song list (expandable tags).
@@ -24,7 +23,9 @@ export function EventInfo() {
     const { bem } = useBem('view-calendar-event-info');
     const { id } = useParams<{ id: string }>();
     const { data: event, isLoading, isError } = useEventDetail(id);
-    const [expandedSongIds, setExpandedSongIds] = useState<Set<string>>(new Set());
+    const [expandedSongIds, setExpandedSongIds] = useState<Set<string>>(
+        new Set()
+    );
 
     if (!id) {
         return <div className={bem()}>Event ID is required.</div>;
@@ -44,7 +45,9 @@ export function EventInfo() {
             <div className={bem('content')}>
                 <aside className={bem('meta')}>
                     <h2 className={bem('meta-title')}>{event.name}</h2>
-                    <p className={bem('meta-date')}>{formatDate(event.date, 'datum')}</p>
+                    <p className={bem('meta-date')}>
+                        {formatDate(event.date, 'datum')}
+                    </p>
                 </aside>
                 <div className={bem('songs')}>
                     {!hasMappedSongs ? (
@@ -54,18 +57,18 @@ export function EventInfo() {
                     ) : (
                         <ol className={bem('song-list')}>
                             {mappedSongs.map((song) => {
-                                const isSongExpanded =
-                                    expandedSongIds.has(song.id);
-                                const sortedTags =
-                                    getSortedTags(song.tags);
-                                const hasTagsToShow =
-                                    sortedTags.length > 0;
+                                const isSongExpanded = expandedSongIds.has(
+                                    song.id
+                                );
+                                const sortedTags = getSortedTags(song.tags);
+                                const hasTagsToShow = sortedTags.length > 0;
                                 const showUnavailableRollout =
                                     isSongExpanded && !hasTagsToShow;
                                 const toggleSongExpanded = () => {
                                     setExpandedSongIds((prev) => {
                                         const next = new Set(prev);
-                                        if (next.has(song.id)) next.delete(song.id);
+                                        if (next.has(song.id))
+                                            next.delete(song.id);
                                         else next.add(song.id);
                                         return next;
                                     });
@@ -80,36 +83,24 @@ export function EventInfo() {
                                         <div className={bem('song-row')}>
                                             <button
                                                 type="button"
-                                                className={bem(
-                                                    'song-title'
-                                                )}
+                                                className={bem('song-title')}
                                                 onClick={toggleSongExpanded}
                                             >
                                                 {song.title}
                                             </button>
                                             <span
-                                                className={bem(
-                                                    'song-author'
-                                                )}
+                                                className={bem('song-author')}
                                             >
                                                 {song.author ?? ''}
                                             </span>
-                                            <span
-                                                className={bem(
-                                                    'song-meta'
-                                                )}
-                                            >
+                                            <span className={bem('song-meta')}>
                                                 {song.hymnal ?? ''}
                                             </span>
                                             <button
                                                 type="button"
-                                                className={bem(
-                                                    'song-chevron'
-                                                )}
+                                                className={bem('song-chevron')}
                                                 onClick={toggleSongExpanded}
-                                                aria-expanded={
-                                                    isSongExpanded
-                                                }
+                                                aria-expanded={isSongExpanded}
                                                 aria-label={
                                                     isSongExpanded
                                                         ? 'Zbaliť'
@@ -135,20 +126,18 @@ export function EventInfo() {
                                                     'song-tags-rollout'
                                                 )}
                                             >
-                                                {sortedTags.map(
-                                                    (tag, i) => (
-                                                        <span
-                                                            key={tag}
-                                                            className={bem(
-                                                                'song-tag'
-                                                            )}
-                                                        >
-                                                            {TAG_LETTERS[i] ??
-                                                                `${i + 1}.`}.{' '}
-                                                            {tag}
-                                                        </span>
-                                                    )
-                                                )}
+                                                {sortedTags.map((tag, i) => (
+                                                    <span
+                                                        key={tag}
+                                                        className={bem(
+                                                            'song-tag'
+                                                        )}
+                                                    >
+                                                        {TAG_LETTERS[i] ??
+                                                            `${i + 1}.`}
+                                                        . {tag}
+                                                    </span>
+                                                ))}
                                             </div>
                                         )}
                                         {showUnavailableRollout && (

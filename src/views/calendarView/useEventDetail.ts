@@ -4,7 +4,8 @@ import axios from 'axios';
 /** Query keys for event detail. Use for invalidation (e.g. queryClient.invalidateQueries({ queryKey: EVENT_QUERY_KEYS.detail(id) })). */
 export const EVENT_QUERY_KEYS = {
     detail: (id: string | undefined) => ['eventDetail', id] as const,
-    details: (ids: string[]) => ['eventDetails', ids.filter(Boolean).sort().join(',')] as const,
+    details: (ids: string[]) =>
+        ['eventDetails', ids.filter(Boolean).sort().join(',')] as const,
 };
 
 export type EventSong = {
@@ -46,7 +47,13 @@ type EventDetailRaw = Omit<EventDetailData, 'songs'> & {
 type EventByIdResponse = Record<string, EventDetailRaw>;
 
 type SongsListResponse = {
-    items: Array<{ id: string; title?: string; author?: string; hymnal?: string; tags?: string[] }>;
+    items: Array<{
+        id: string;
+        title?: string;
+        author?: string;
+        hymnal?: string;
+        tags?: string[];
+    }>;
 };
 
 function mergeEventWithSongs(

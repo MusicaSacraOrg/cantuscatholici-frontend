@@ -17,7 +17,7 @@ type TableColumn<T> = {
     label: string;
     size: ColumnSize;
     isSortFilter: boolean;
-    render?: (value: any, row: T) => ReactNode;
+    render?: (value: unknown, row: T) => ReactNode;
 };
 
 type TableProps<T extends Record<string, ReactNode>> = {
