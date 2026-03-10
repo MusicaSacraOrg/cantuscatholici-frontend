@@ -1,0 +1,95 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "CantusCatholici" [ref=e7] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e8]:
+        - link "Piesne" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Liturgický Kalendár" [ref=e10] [cursor=pointer]:
+          - /url: /calendar/*
+        - link "O Projekte" [ref=e11] [cursor=pointer]:
+          - /url: /about-the-project
+        - link [ref=e12] [cursor=pointer]:
+          - /url: /dashboard/5
+          - img [ref=e13]
+  - generic [ref=e15]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - link "Noty a text" [ref=e20] [cursor=pointer]:
+          - /url: /song/3/sheets
+        - link "Hymnológia" [ref=e21] [cursor=pointer]:
+          - /url: /song/3/hymnology
+        - link "Slávenia" [ref=e22] [cursor=pointer]:
+          - /url: /song/3/events
+        - link "Súvisiace piesne" [ref=e23] [cursor=pointer]:
+          - /url: /song/3/related
+      - link "Úpravy a medzihry" [ref=e25] [cursor=pointer]:
+        - /url: /song/3/arrangements
+    - generic [ref=e29]:
+      - heading "Aleluja, chváľte Pána" [level=1] [ref=e30]
+      - paragraph [ref=e31]: Ján Levoslav Bella
+      - generic [ref=e32]:
+        - link "PDF" [ref=e33] [cursor=pointer]:
+          - /url: http://localhost:8000/api/static_content/20
+        - link "SVG" [ref=e34] [cursor=pointer]:
+          - /url: http://localhost:8000/api/static_content/19
+      - generic [ref=e35]:
+        - generic [ref=e36]: "Transponovanie:"
+        - button "-" [ref=e37] [cursor=pointer]
+        - generic [ref=e38]: Original
+        - button "+" [ref=e39] [cursor=pointer]
+      - generic [ref=e40]:
+        - button "Zvacsit noty" [ref=e41] [cursor=pointer]
+        - img [ref=e43]:
+          - generic [ref=e45]: Aleluja, chváľte Pána
+          - generic [ref=e47]: 𝄞
+          - generic [ref=e52]: A - le - lu - ja
+          - generic [ref=e57]: chvál - te - Pá - na
+      - generic [ref=e59]:
+        - generic [ref=e60]:
+          - generic [ref=e61]: "1."
+          - generic [ref=e62]: Chvalme Pana v kazdom chrame s radostou
+        - generic [ref=e63]:
+          - generic [ref=e64]: "R:"
+          - generic [ref=e65]: Aleluja aleluja chvalme Pana
+  - generic [ref=e67]:
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - link "MusicaSacraOrg" [ref=e70] [cursor=pointer]:
+          - /url: https://musicasacraorg.sk
+        - paragraph [ref=e71]: Lorem ipsum lorem ipsum, lorem ipsum, lorem ipsum
+        - list [ref=e72]:
+          - listitem [ref=e73]: info@musicasacraorg.sk
+          - listitem [ref=e74]: +421 918 958 527
+      - generic [ref=e75]:
+        - heading "Zdroje" [level=3] [ref=e76]
+        - list [ref=e77]:
+          - listitem [ref=e78]:
+            - link "Dokumentácia" [ref=e79] [cursor=pointer]:
+              - /url: /docs
+          - listitem [ref=e80]:
+            - link "O Projekte" [ref=e81] [cursor=pointer]:
+              - /url: /about-the-project
+      - generic [ref=e82]:
+        - heading "Obsah" [level=3] [ref=e83]
+        - list [ref=e84]:
+          - listitem [ref=e85]:
+            - link "Piesne" [ref=e86] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e87]:
+            - link "Liturgický kalendár" [ref=e88] [cursor=pointer]:
+              - /url: /calendar/*
+    - generic [ref=e90]:
+      - paragraph [ref=e92]: Všetky práva vyhradené © MusicaSacraOrg
+      - list [ref=e94]:
+        - listitem [ref=e95]:
+          - link "Ochrana osobných údajov" [ref=e96] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e97]:
+          - link "Cookies" [ref=e98] [cursor=pointer]:
+            - /url: /
+```

@@ -15,6 +15,7 @@ type UserContentItem = {
     addedByUserId: number;
     addedByName?: string;
     addedAt?: string;
+    reviewStatus?: string;
 };
 
 type UserContentList = {
@@ -170,7 +171,24 @@ export function ArrangementsTab() {
                                         borderRadius: '4px',
                                     }}
                                 >
-                                    <strong>{item.title}</strong>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <strong>{item.title}</strong>
+                                        {item.reviewStatus === 'approved' && (
+                                            <span style={{ fontSize: '12px', padding: '2px 8px', borderRadius: '4px', backgroundColor: '#5cb85c', color: '#fff' }}>
+                                                Schvalene
+                                            </span>
+                                        )}
+                                        {item.reviewStatus === 'open' && (
+                                            <span style={{ fontSize: '12px', padding: '2px 8px', borderRadius: '4px', backgroundColor: '#f0ad4e', color: '#fff' }}>
+                                                Caka na schvalenie
+                                            </span>
+                                        )}
+                                        {item.reviewStatus === 'rejected' && (
+                                            <span style={{ fontSize: '12px', padding: '2px 8px', borderRadius: '4px', backgroundColor: '#d9534f', color: '#fff' }}>
+                                                Zamietnute
+                                            </span>
+                                        )}
+                                    </div>
                                     {item.description && (
                                         <p style={{ margin: '4px 0', color: '#666' }}>
                                             {item.description}

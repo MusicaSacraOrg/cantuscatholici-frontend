@@ -12,6 +12,10 @@ import { TagListView } from '../../admin/pages/tag/TagListView';
 import { TagFormView } from '../../admin/pages/tag/TagFormView';
 import { SongListView } from '../../admin/pages/song/SongListView';
 import { SongFormView } from '../../admin/pages/song/SongFormView';
+import { ReviewListView } from '../../admin/pages/review/ReviewListView';
+import { ReviewDetailView } from '../../admin/pages/review/ReviewDetailView';
+import { CalendarListView } from '../../admin/pages/calendar/CalendarListView';
+import { CalendarEntryFormView } from '../../admin/pages/calendar/CalendarEntryFormView';
 
 export function AdminRouter() {
     return (
@@ -23,6 +27,7 @@ export function AdminRouter() {
                     />
                 }
             >
+                <Route index element={<DefaultAdminView />} />
                 <Route path={Paths.ADMIN_HOME} element={<DefaultAdminView />} />
                 <Route
                     path={Paths.ADMIN_EDIT_PROFILE}
@@ -56,6 +61,28 @@ export function AdminRouter() {
                 <Route
                     path={Paths.ADMIN_SONG_CREATE}
                     element={<SongFormView />}
+                />
+
+                <Route
+                    path={Paths.ADMIN_REVIEW_LIST}
+                    element={<ReviewListView />}
+                />
+                <Route
+                    path={Paths.ADMIN_REVIEW_DETAIL}
+                    element={<ReviewDetailView />}
+                />
+
+                <Route
+                    path={Paths.ADMIN_CALENDAR_LIST}
+                    element={<CalendarListView />}
+                />
+                <Route
+                    path={Paths.ADMIN_CALENDAR_CREATE}
+                    element={<CalendarEntryFormView />}
+                />
+                <Route
+                    path={Paths.ADMIN_CALENDAR_EDIT}
+                    element={<CalendarEntryFormView />}
                 />
             </Route>
 

@@ -28,4 +28,8 @@ export class SongEndpoints extends Endpoints {
     static updateSongLyrics(id: string | number) {
         return `${this.baseUrl}/api/song/${id}/lyrics`;
     }
+
+    static setSongMscz(id: string | number) {
+        return `${this.baseUrl}/api/song/${id}/mscz`;
+    }
 }

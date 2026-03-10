@@ -2,14 +2,14 @@ import { Endpoints } from '../Endpoints';
 
 export class AuthEndpoints extends Endpoints {
     static login() {
-        return `${this.baseUrl}/user/login`;
+        return `${this.baseUrl}/api/user/login`;
     }
 
     static register() {
-        return `${this.baseUrl}/user/register`;
+        return `${this.baseUrl}/api/user/register`;
     }
 
     static getCurrentUser() {
-        return `${this.baseUrl}/user/`;
+        return `${this.baseUrl}/api/user/`;
     }
 }

@@ -13,7 +13,8 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test:e2e": "npx playwright test"
   },
   "author": "Samuel Slávik",
   "license": "ISC",
@@ -36,6 +37,7 @@
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.27.0",
     "@eslint/js": "^9.23.0",
+    "@playwright/test": "^1.58.2",
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-interactions": "^8.6.12",
     "@storybook/addon-onboarding": "^8.6.12",

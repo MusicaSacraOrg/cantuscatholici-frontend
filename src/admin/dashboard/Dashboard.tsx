@@ -39,6 +39,8 @@ export function Dashboard() {
             {isRedactorOrAdmin && (
                 <div className={'link-group'}>
                     <NavLink to={`/dashboard/${userId}/song`}>Piesne</NavLink>
+                    <NavLink to={`/dashboard/${userId}/review`}>Recenzie</NavLink>
+                    <NavLink to={`/dashboard/${userId}/calendar`}>Kalendár</NavLink>
                 </div>
             )}
             {isAdmin && (

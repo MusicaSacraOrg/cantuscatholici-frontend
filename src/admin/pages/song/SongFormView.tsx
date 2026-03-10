@@ -19,7 +19,10 @@ import axios from 'axios';
 import { SongEndpoints } from '../../../api/song/SongEndpoints';
 import { PersonEndpoints } from '../../../api/person/PersonEndpoints';
 import { TagEndpoints } from '../../../api/tag/TagEndpoints';
+import { StaticContentEndpoints } from '../../../api/staticContent/StaticContentEndpoints';
+import { ContentEndpoints } from '../../../api/content/ContentEndpoints';
 import { SongLyrics, LyricsPart } from '../../../models/song';
+import { FileUpload } from '../../../components/fileUpload/FileUpload';
 
 type SongDetailResponse = {
     id: number;
@@ -61,6 +64,11 @@ export function SongFormView() {
     const [description, setDescription] = useState('');
     const [selectedTagIds, setSelectedTagIds] = useState<number[]>([]);
     const [lyricsParts, setLyricsParts] = useState<LyricsPart[]>([]);
+    const [msczFileId, setMsczFileId] = useState<number | null>(null);
+    const [svgFileId, setSvgFileId] = useState<number | null>(null);
+    const [pdfFileId, setPdfFileId] = useState<number | null>(null);
+    const [mp3FileId, setMp3FileId] = useState<number | null>(null);
+    const [msczUploading, setMsczUploading] = useState(false);
 
     const { data: songData, isLoading: songLoading } = useQuery({
         queryKey: ['adminSong', id],
@@ -193,6 +201,24 @@ export function SongFormView() {
                             lyrics: p.lyrics,
                         })),
                     },
+                    { headers }
+                );
+            }
+
+            if (msczFileId && svgFileId && pdfFileId) {
+                const msczResp = await axios.post(
+                    ContentEndpoints.createMsczContent(),
+                    {
+                        c_mscz_file_id: msczFileId,
+                        c_svg_file_id: svgFileId,
+                        pdf_file_id: pdfFileId,
+                        mp3_file_id: mp3FileId,
+                    },
+                    { headers }
+                );
+                await axios.put(
+                    SongEndpoints.setSongMscz(songId),
+                    { mscz_id: msczResp.data.id },
                     { headers }
                 );
             }
@@ -386,6 +412,56 @@ export function SongFormView() {
                                     />
                                 </div>
                             ))}
+                        </InputGroup>
+                        <InputGroup>
+                            <Label>Noty (MuseScore)</Label>
+                            {isEdit && songData && (songData as any).msczContent && (
+                                <p style={{ marginBottom: '8px', color: '#5cb85c' }}>
+                                    Piesen uz ma nahrane noty. Nahrajte nove subory pre nahradenie.
+                                </p>
+                            )}
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                <div>
+                                    <p style={{ marginBottom: '4px', fontWeight: 'bold' }}>
+                                        .mscz subor {msczFileId ? '(nahrane)' : '(povinne)'}
+                                    </p>
+                                    <FileUpload
+                                        accept=".mscz"
+                                        label="Nahrajte .mscz subor"
+                                        onUploaded={(file) => setMsczFileId(file.id)}
+                                    />
+                                </div>
+                                <div>
+                                    <p style={{ marginBottom: '4px', fontWeight: 'bold' }}>
+                                        .svg subor {svgFileId ? '(nahrane)' : '(povinne)'}
+                                    </p>
+                                    <FileUpload
+                                        accept=".svg"
+                                        label="Nahrajte .svg subor"
+                                        onUploaded={(file) => setSvgFileId(file.id)}
+                                    />
+                                </div>
+                                <div>
+                                    <p style={{ marginBottom: '4px', fontWeight: 'bold' }}>
+                                        .pdf subor {pdfFileId ? '(nahrane)' : '(povinne)'}
+                                    </p>
+                                    <FileUpload
+                                        accept=".pdf"
+                                        label="Nahrajte .pdf subor"
+                                        onUploaded={(file) => setPdfFileId(file.id)}
+                                    />
+                                </div>
+                                <div>
+                                    <p style={{ marginBottom: '4px', fontWeight: 'bold' }}>
+                                        .mp3 subor {mp3FileId ? '(nahrane)' : '(volitelne)'}
+                                    </p>
+                                    <FileUpload
+                                        accept=".mp3"
+                                        label="Nahrajte .mp3 subor (volitelne)"
+                                        onUploaded={(file) => setMp3FileId(file.id)}
+                                    />
+                                </div>
+                            </div>
                         </InputGroup>
                     </FormGroup>
                     <Button

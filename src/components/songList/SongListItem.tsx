@@ -49,6 +49,11 @@ export function SongListItem({ song }: SongListItemProps) {
                     )}
                 </div>
             </div>
+            {song.lyricsSnippet && (
+                <div className={bem('lyrics-snippet')} style={{ padding: '4px 0', fontStyle: 'italic', fontSize: '0.9em', color: '#666' }}>
+                    {song.lyricsSnippet}
+                </div>
+            )}
             {expanded && (
                 <div className={bem('details')}>
                     {song.description && (

@@ -10,6 +10,7 @@ export type Song = {
     authorName?: string;
     tags: SongTag[];
     description?: string;
+    lyricsSnippet?: string;
 };
 
 export type SongDetailTag = {
